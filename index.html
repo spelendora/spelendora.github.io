@@ -394,11 +394,9 @@ a {
   color: var(--accent);
   opacity: 0;
   transform: translateY(-8px);
-}
-
-.center-name__gap {
-  display: inline-block;
-  width: 2em;
+  word-spacing: 0.6em;
+  /* Compensate for letter-spacing trailing space to keep visually centered */
+  padding-right: 0.35em;
 }
 
 .center-name__rule {
@@ -645,7 +643,7 @@ a {
 
 <!-- Center name -->
 <div class="center-name">
-  <p class="center-name__text"><span class="center-name__first">Valeriy</span><span class="center-name__gap"></span><span class="center-name__last">Grachev</span></p>
+  <p class="center-name__text">Valeriy Grachev</p>
   <div class="center-name__rule"></div>
 </div>
 
