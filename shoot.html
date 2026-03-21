@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading — Valeriy Grachev</title>
+<meta name="description" content="Valeriy Grachev — Editorial & documentary photography collection.">
+<meta property="og:title" content="Valeriy Grachev — Photography">
+<meta property="og:description" content="Editorial & documentary photography collection.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & VARIABLES
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #060606;
+  --text: #e8e4df;
+  --text-dim: #9e9a95;
+  --accent: #8b6f4e;
+  --accent-light: #b89b70;
+  --muted: #8a857e;
+  --border: rgba(255,255,255,0.10);
+  --serif: 'Cormorant Garamond', 'Georgia', serif;
+  --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 4px;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ============================================
+   PAGE LOADER
+   ============================================ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader span {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   ERROR STATE
+   ============================================ */
+.error-state {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.error-state h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.error-state p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.error-state a {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  padding: 0.5rem 0.25rem;
+}
+
+/* ============================================
+   FIXED NAVIGATION BAR
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.8rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav--scrolled {
+  background: rgba(6, 6, 6, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 4vw;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__back {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.3s ease;
+  padding: 0.5rem 0.25rem;
+}
+
+.nav__back:hover {
+  color: var(--accent-light);
+}
+
+.nav__back-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav__back:hover .nav__back-arrow {
+  transform: translateX(-4px);
+}
+
+.nav__shoot-title {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav--scrolled .nav__shoot-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav__counter {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__image-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.0);
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 6, 6, 0.1) 0%,
+    rgba(6, 6, 6, 0.02) 30%,
+    rgba(6, 6, 6, 0.35) 65%,
+    rgba(6, 6, 6, 0.92) 100%
+  );
+}
+
+.hero__noise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 4vw 8vh;
+  width: 100%;
+}
+
+.hero__collection {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 11vw, 12rem);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.hero__title span {
+  display: block;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.hero__title span:nth-child(1) {
+  animation: nameReveal 1.2s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero__title span:nth-child(2) {
+  animation: nameReveal 1.2s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero__title span:nth-child(3) {
+  animation: nameReveal 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes nameReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__rule {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: ruleReveal 0.8s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ruleReveal {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.hero__meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeUp 1s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hero__scroll:hover {
+  opacity: 0.8;
+}
+
+.hero__scroll-text {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { top: -100%; }
+  50% { top: 100%; }
+  50.01% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* ============================================
+   GALLERY
+   ============================================ */
+.gallery {
+  border-top: 1px solid var(--border);
+}
+
+.gallery__description {
+  padding: 10vh 4vw 6vh;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.gallery__desc-text {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--text-dim);
+}
+
+.gallery__grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery__row {
+  border-top: 1px solid var(--border);
+}
+
+/* Full-width */
+.gallery__full {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.02);
+}
+
+.gallery__full .gallery__item {
+  width: 100%;
+}
+
+.gallery__full .gallery__item img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: cover;
+}
+
+/* Pair */
+.gallery__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.gallery__pair .gallery__item {
+  height: 75vh;
+}
+
+.gallery__pair .gallery__item:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.gallery__pair .gallery__item img {
+  height: 100%;
+}
+
+/* Caption overlay */
+.gallery__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(6, 6, 6, 0.8) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.gallery__item:hover .gallery__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery__caption-id {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 0.3rem;
+}
+
+.gallery__caption-text {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 0.15s; }
+.reveal--delay-2 { transition-delay: 0.3s; }
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about {
+  border-top: 1px solid var(--border);
+  padding: 12vh 4vw;
+  display: flex;
+  justify-content: center;
+}
+
+.about__inner {
+  max-width: 640px;
+  text-align: center;
+}
+
+.about__label {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 2.5rem;
+}
+
+.about__text {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.about__text em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.about__detail {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+.about__cta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.about__cta-link {
+  color: var(--accent-light);
+  transition: color 0.3s ease;
+}
+
+.about__cta-link:hover {
+  color: var(--text);
+}
+
+/* ============================================
+   SHOOT NAVIGATION (prev/next)
+   ============================================ */
+.shoot-nav {
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.shoot-nav__link {
+  padding: 4rem 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.4s ease;
+  position: relative;
+}
+
+.shoot-nav__link:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.shoot-nav__link:last-child {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.shoot-nav__link:hover {
+  background: rgba(139, 111, 78, 0.03);
+}
+
+.shoot-nav__direction {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.shoot-nav__link:hover .shoot-nav__direction {
+  color: var(--accent-light);
+}
+
+.shoot-nav__title {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.shoot-nav__link:hover .shoot-nav__title {
+  color: var(--accent-light);
+}
+
+.shoot-nav__location {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.shoot-nav__link--empty {
+  pointer-events: none;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__copy {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.footer__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__link {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0.35rem;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer__link:hover {
+  color: var(--text-dim);
+}
+
+.footer__link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(6, 6, 6, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.lightbox--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox__img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  transform: scale(0.95);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.lightbox--active .lightbox__img {
+  transform: scale(1);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__close:hover {
+  opacity: 1;
+}
+
+.lightbox__close::before,
+.lightbox__close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 1px;
+  background: var(--text);
+}
+
+.lightbox__close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.lightbox__close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Lightbox navigation */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.lightbox__nav:hover {
+  opacity: 0.8;
+}
+
+.lightbox__nav--prev {
+  left: 1.5rem;
+}
+
+.lightbox__nav--next {
+  right: 1.5rem;
+}
+
+.lightbox__nav svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.lightbox__counter {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  z-index: 10;
+}
+
+.lightbox__caption {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-dim);
+  max-width: 300px;
+  text-align: right;
+  z-index: 10;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .nav {
+    padding: 1.2rem 5vw;
+  }
+
+  .nav__counter {
+    display: none;
+  }
+
+  .hero__content {
+    padding: 0 6vw 10vh;
+  }
+
+  .gallery__pair {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__pair .gallery__item {
+    height: 60vh;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .gallery__pair .gallery__item:last-child {
+    border-bottom: none;
+  }
+
+  .gallery__full .gallery__item img {
+    max-height: 55vh;
+  }
+
+  /* Show captions on mobile since there's no hover */
+  .gallery__caption {
+    opacity: 0.85;
+    transform: translateY(0);
+    padding: 2rem 1.5rem 1.2rem;
+  }
+
+  .gallery__description {
+    padding: 8vh 6vw 5vh;
+  }
+
+  .about {
+    padding: 8vh 6vw;
+  }
+
+  .shoot-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .shoot-nav__link:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shoot-nav__link:last-child {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .shoot-nav__link {
+    padding: 3rem 6vw;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 6vw;
+  }
+
+  .lightbox__nav--prev { left: 0.5rem; }
+  .lightbox__nav--next { right: 0.5rem; }
+  .lightbox__caption { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(2.5rem, 14vw, 4.5rem);
+  }
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero__title span,
+  .hero__collection,
+  .hero__rule,
+  .hero__meta {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   CONTACT OVERLAY
+   ============================================ */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 6, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.contact-overlay__panel {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 90vw);
+  height: 100%;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  padding: clamp(3rem, 6vh, 5rem) clamp(2rem, 5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateX(40px);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-overlay.is-open .contact-overlay__panel {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.contact-overlay__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-overlay__close:hover {
+  opacity: 1;
+}
+
+.contact-overlay__close::before,
+.contact-overlay__close::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background: var(--text);
+}
+
+.contact-overlay__close::before {
+  transform: rotate(45deg);
+}
+
+.contact-overlay__close::after {
+  transform: rotate(-45deg);
+}
+
+.contact-overlay__label {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+
+.contact-overlay__label-line {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  margin-top: 1rem;
+}
+
+.contact-overlay__items {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-overlay__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-overlay__item-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-overlay__preferred {
+  display: inline-block;
+  margin-left: 0.75rem;
+  padding: 0.15em 0.6em;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--accent);
+  color: var(--accent-light);
+  border-radius: 2px;
+}
+
+.contact-overlay__item-value {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-overlay__item-value:hover {
+  color: var(--accent-light);
+}
+
+.contact-overlay__note {
+  margin-top: 3.5rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+
+<noscript><style>.loader{display:none!important}</style><div style="padding:4rem;color:#e8e4df;font-family:Georgia,serif;text-align:center"><h1>Valeriy Grachev</h1><p style="margin-top:1rem;color:#9a968f">This portfolio requires JavaScript to display content.</p><a href="photography.html" style="color:#8b6f4e;margin-top:2rem;display:inline-block">&larr; Back to Portfolio</a></div></noscript>
+
+<!-- Loader -->
+<div class="loader" id="loader"><span>Loading</span></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox"></button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">
+    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+  </button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt="">
+  <p class="lightbox__counter" id="lightboxCounter"></p>
+  <p class="lightbox__caption" id="lightboxCaption"></p>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <a href="photography.html" class="nav__back">
+    <span class="nav__back-arrow">&larr;</span>
+    <span>All Works</span>
+  </a>
+  <span class="nav__shoot-title" id="navTitle"></span>
+  <span class="nav__counter" id="navCounter"></span>
+</nav>
+
+<!-- Hero (filled by JS) -->
+<section class="hero" id="hero">
+  <div class="hero__image-wrapper">
+    <img class="hero__image" id="heroImage" src="" alt="">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__noise"></div>
+  <div class="hero__content" id="heroContent"></div>
+  <button class="hero__scroll" aria-label="Scroll to gallery" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">
+    <span class="hero__scroll-text">View Work</span>
+    <div class="hero__scroll-line"></div>
+  </button>
+</section>
+
+<!-- Gallery (filled by JS) -->
+<section class="gallery" id="gallery"></section>
+
+<!-- About (filled by JS) -->
+<section class="about" id="about"></section>
+
+<!-- Shoot navigation (prev/next) -->
+<nav class="shoot-nav" id="shootNav"></nav>
+
+<!-- Footer -->
+<footer class="footer" id="footer"></footer>
+
+<!-- Contact Overlay -->
+<div class="contact-overlay" id="contactOverlay" role="dialog" aria-modal="true" aria-label="Contact information">
+  <div class="contact-overlay__backdrop" id="contactBackdrop"></div>
+  <div class="contact-overlay__panel">
+    <button class="contact-overlay__close" id="contactClose" aria-label="Close contact panel"></button>
+    <div class="contact-overlay__label">
+      Get in Touch
+      <div class="contact-overlay__label-line"></div>
+    </div>
+    <div class="contact-overlay__items" id="contactItems"></div>
+    <p class="contact-overlay__note">Available for editorial, fashion,<br>and documentary commissions worldwide.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var params = new URLSearchParams(window.location.search);
+  var shootId = params.get('id');
+
+  if (!shootId) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  fetch('shoots.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var shoots = data.shoots;
+      var photographer = data.photographer;
+      var index = -1;
+
+      for (var i = 0; i < shoots.length; i++) {
+        if (shoots[i].id === shootId) {
+          index = i;
+          break;
+        }
+      }
+
+      if (index === -1) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      var shoot = shoots[index];
+      var allImages = collectImages(shoot);
+
+      document.title = shoot.title + ' — ' + photographer.name;
+
+      /* Dynamic OG tags for social sharing */
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', shoot.description + ' — ' + photographer.name);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', shoot.title + ' — ' + photographer.name);
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', shoot.description);
+
+      renderHero(shoot);
+      renderNav(shoot, allImages.length);
+      renderGallery(shoot);
+      renderAbout(shoot);
+      renderShootNav(shoots, index);
+      renderFooter(photographer);
+      renderContactOverlay(photographer);
+      initContactOverlay();
+      initLightbox(allImages);
+      initScrollEffects();
+
+      // Preload hero then hide loader
+      var heroImg = new Image();
+      heroImg.onload = heroImg.onerror = function() {
+        document.getElementById('loader').classList.add('is-hidden');
+      };
+      heroImg.src = shoot.hero;
+      // Safety timeout
+      setTimeout(function() {
+        document.getElementById('loader').classList.add('is-hidden');
+      }, 3000);
+    })
+    .catch(function(err) {
+      console.error('Failed to load shoot:', err);
+      document.getElementById('loader').classList.add('is-hidden');
+      document.getElementById('gallery').innerHTML =
+        '<div class="error-state">' +
+          '<h2>Unable to load collection</h2>' +
+          '<p>Please check your connection and try again.</p>' +
+          '<a href="photography.html">&larr; Back to Portfolio</a>' +
+        '</div>';
+    });
+
+  /* ==========================================
+     COLLECT ALL IMAGES (flat array for lightbox)
+     ========================================== */
+  function collectImages(shoot) {
+    var images = [];
+    shoot.layout.forEach(function(row) {
+      if (row.type === 'full') {
+        images.push({ src: row.src, alt: row.alt || '', caption: row.caption || '', id: row.id || '' });
+      } else if (row.type === 'pair') {
+        row.images.forEach(function(img) {
+          images.push({ src: img.src, alt: img.alt || '', caption: img.caption || '', id: img.id || '' });
+        });
+      }
+    });
+    return images;
+  }
+
+  /* ==========================================
+     RENDER HERO
+     ========================================== */
+  function renderHero(shoot) {
+    var heroImage = document.getElementById('heroImage');
+    heroImage.src = shoot.hero;
+    heroImage.alt = shoot.heroAlt || shoot.title;
+
+    var content = document.getElementById('heroContent');
+    // Split title into words for staggered reveal
+    var words = shoot.title.split(' ');
+    var titleSpans = words.map(function(w) {
+      return '<span>' + esc(w) + '</span>';
+    }).join('');
+
+    content.innerHTML =
+      '<p class="hero__collection">' + esc(shoot.subtitle) + '</p>' +
+      '<h1 class="hero__title">' + titleSpans + '</h1>' +
+      '<div class="hero__rule"></div>' +
+      '<p class="hero__meta">' + esc(shoot.location) + ' &mdash; ' + esc(shoot.date) + '</p>';
+  }
+
+  /* ==========================================
+     RENDER FIXED NAV
+     ========================================== */
+  function renderNav(shoot, photoCount) {
+    document.getElementById('navTitle').textContent = shoot.title;
+    document.getElementById('navCounter').textContent = photoCount + ' photographs';
+  }
+
+  /* ==========================================
+     RENDER GALLERY
+     ========================================== */
+  function renderGallery(shoot) {
+    var gallery = document.getElementById('gallery');
+    var html = '';
+
+    // Description
+    html += '<div class="gallery__description reveal">' +
+      '<p class="gallery__desc-text">' + esc(shoot.description) + '</p>' +
+      '</div>';
+
+    html += '<div class="gallery__grid">';
+
+    var imgIndex = 0;
+
+    shoot.layout.forEach(function(row) {
+      if (row.type === 'full') {
+        html += '<div class="gallery__row gallery__full reveal">' +
+          '<div class="gallery__item" data-lightbox-index="' + imgIndex + '" tabindex="0" role="button" aria-label="View image: ' + esc(row.alt || row.caption || 'Photo ' + (imgIndex + 1)) + '">' +
+            '<img src="' + esc(row.src) + '" alt="' + esc(row.alt || '') + '" loading="lazy">' +
+            '<div class="gallery__caption">' +
+              (row.id ? '<p class="gallery__caption-id">' + esc(row.id) + '</p>' : '') +
+              '<p class="gallery__caption-text">' + esc(row.caption || '') + '</p>' +
+            '</div>' +
+          '</div>' +
+          '</div>';
+        imgIndex++;
+      } else if (row.type === 'pair') {
+        html += '<div class="gallery__row gallery__pair">';
+        row.images.forEach(function(img, pairIdx) {
+          var delayClass = pairIdx > 0 ? ' reveal--delay-1' : '';
+          html += '<div class="gallery__item reveal' + delayClass + '" data-lightbox-index="' + imgIndex + '" tabindex="0" role="button" aria-label="View image: ' + esc(img.alt || img.caption || 'Photo ' + (imgIndex + 1)) + '">' +
+            '<img src="' + esc(img.src) + '" alt="' + esc(img.alt || '') + '" loading="lazy">' +
+            '<div class="gallery__caption">' +
+              (img.id ? '<p class="gallery__caption-id">' + esc(img.id) + '</p>' : '') +
+              '<p class="gallery__caption-text">' + esc(img.caption || '') + '</p>' +
+            '</div>' +
+          '</div>';
+          imgIndex++;
+        });
+        html += '</div>';
+      }
+    });
+
+    html += '</div>';
+    gallery.innerHTML = html;
+  }
+
+  /* ==========================================
+     RENDER ABOUT
+     ========================================== */
+  function renderAbout(shoot) {
+    if (!shoot.about || shoot.about.length === 0) return;
+
+    var about = document.getElementById('about');
+    var html = '<div class="about__inner reveal">' +
+      '<p class="about__label">About This Work</p>';
+
+    shoot.about.forEach(function(para) {
+      html += '<p class="about__text">' + para + '</p>';
+    });
+
+    if (shoot.details) {
+      html += '<p class="about__detail">' + esc(shoot.details) + '</p>';
+    }
+
+    if (shoot.cta) {
+      html += '<p class="about__cta">Interested in working together? <a href="#contact" class="about__cta-link" id="shootCta">Get in touch</a></p>';
+    }
+
+    html += '</div>';
+    about.innerHTML = html;
+
+    if (shoot.cta) {
+      var ctaLink = document.getElementById('shootCta');
+      if (ctaLink) {
+        ctaLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          var overlay = document.getElementById('contactOverlay');
+          if (overlay) {
+            overlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      }
+    }
+  }
+
+  /* ==========================================
+     RENDER SHOOT NAV (prev/next)
+     ========================================== */
+  function renderShootNav(shoots, currentIndex) {
+    var nav = document.getElementById('shootNav');
+    var prev = currentIndex > 0 ? shoots[currentIndex - 1] : null;
+    var next = currentIndex < shoots.length - 1 ? shoots[currentIndex + 1] : null;
+
+    var html = '';
+
+    // Previous
+    if (prev) {
+      html += '<a href="shoot.html?id=' + encodeURIComponent(prev.id) + '" class="shoot-nav__link">' +
+        '<span class="shoot-nav__direction">&larr; Previous</span>' +
+        '<span class="shoot-nav__title">' + esc(prev.title) + '</span>' +
+        '<span class="shoot-nav__location">' + esc(prev.location) + '</span>' +
+        '</a>';
+    } else {
+      html += '<a href="photography.html" class="shoot-nav__link">' +
+        '<span class="shoot-nav__direction">&larr; Back</span>' +
+        '<span class="shoot-nav__title">All Works</span>' +
+        '<span class="shoot-nav__location">Portfolio</span>' +
+        '</a>';
+    }
+
+    // Next
+    if (next) {
+      html += '<a href="shoot.html?id=' + encodeURIComponent(next.id) + '" class="shoot-nav__link">' +
+        '<span class="shoot-nav__direction">Next &rarr;</span>' +
+        '<span class="shoot-nav__title">' + esc(next.title) + '</span>' +
+        '<span class="shoot-nav__location">' + esc(next.location) + '</span>' +
+        '</a>';
+    } else {
+      html += '<a href="photography.html" class="shoot-nav__link">' +
+        '<span class="shoot-nav__direction">Back &rarr;</span>' +
+        '<span class="shoot-nav__title">All Works</span>' +
+        '<span class="shoot-nav__location">Portfolio</span>' +
+        '</a>';
+    }
+
+    nav.innerHTML = html;
+  }
+
+  /* ==========================================
+     RENDER FOOTER
+     ========================================== */
+  function renderFooter(photographer) {
+    var footer = document.getElementById('footer');
+    var linksHtml = '<a href="photography.html" class="footer__link">Home</a>';
+
+    if (photographer.email) {
+      linksHtml += '<a href="mailto:' + esc(photographer.email) + '" class="footer__link">Email</a>';
+    }
+    if (photographer.socials) {
+      Object.keys(photographer.socials).forEach(function(key) {
+        linksHtml += '<a href="' + esc(photographer.socials[key]) + '" class="footer__link" target="_blank" rel="noopener noreferrer">' +
+          esc(key.charAt(0).toUpperCase() + key.slice(1)) + '</a>';
+      });
+    }
+
+    footer.innerHTML =
+      '<p class="footer__copy">&copy; 2026 ' + esc(photographer.name) + '</p>' +
+      '<div class="footer__links">' + linksHtml + '</div>';
+  }
+
+  /* ==========================================
+     CONTACT OVERLAY
+     ========================================== */
+  function renderContactOverlay(p) {
+    var container = document.getElementById('contactItems');
+    var html = '';
+
+    if (p.socials && p.socials.telegram) {
+      html += '<div class="contact-overlay__item">' +
+        '<span class="contact-overlay__item-label">Telegram<span class="contact-overlay__preferred">preferred</span></span>' +
+        '<a href="' + esc(p.socials.telegram) + '" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">@spelendora</a>' +
+        '</div>';
+    }
+
+    if (p.email) {
+      html += '<div class="contact-overlay__item">' +
+        '<span class="contact-overlay__item-label">Email</span>' +
+        '<a href="mailto:' + esc(p.email) + '" class="contact-overlay__item-value">' + esc(p.email) + '</a>' +
+        '</div>';
+    }
+
+    if (p.socials && p.socials.linkedin) {
+      html += '<div class="contact-overlay__item">' +
+        '<span class="contact-overlay__item-label">LinkedIn</span>' +
+        '<a href="' + esc(p.socials.linkedin) + '" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">Valeriy Grachev</a>' +
+        '</div>';
+    }
+
+    container.innerHTML = html;
+  }
+
+  function initContactOverlay() {
+    var overlay = document.getElementById('contactOverlay');
+    var closeBtn = document.getElementById('contactClose');
+    var backdrop = document.getElementById('contactBackdrop');
+
+    function closeContact() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeContact);
+    backdrop.addEventListener('click', closeContact);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+        closeContact();
+      }
+    });
+  }
+
+  /* ==========================================
+     LIGHTBOX
+     ========================================== */
+  function initLightbox(allImages) {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxClose = document.getElementById('lightboxClose');
+    var lightboxPrev = document.getElementById('lightboxPrev');
+    var lightboxNext = document.getElementById('lightboxNext');
+    var lightboxCounter = document.getElementById('lightboxCounter');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var currentIdx = 0;
+    var previouslyFocused = null;
+
+    // Focusable elements inside lightbox for focus trapping
+    var focusableEls = [lightboxClose, lightboxPrev, lightboxNext];
+
+    function showImage(idx) {
+      currentIdx = idx;
+      lightboxImg.src = allImages[idx].src;
+      lightboxImg.alt = allImages[idx].alt || 'Photo ' + (idx + 1);
+      lightboxCounter.textContent = (idx + 1) + ' / ' + allImages.length;
+      lightboxCaption.textContent = allImages[idx].caption || '';
+    }
+
+    function openLightbox(idx) {
+      previouslyFocused = document.activeElement;
+      showImage(idx);
+      lightbox.classList.add('lightbox--active');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('lightbox--active');
+      document.body.style.overflow = '';
+      setTimeout(function() { lightboxImg.src = ''; }, 400);
+      if (previouslyFocused) {
+        previouslyFocused.focus();
+        previouslyFocused = null;
+      }
+    }
+
+    function nextImage() {
+      showImage((currentIdx + 1) % allImages.length);
+    }
+
+    function prevImage() {
+      showImage((currentIdx - 1 + allImages.length) % allImages.length);
+    }
+
+    // Click handlers on gallery items
+    document.addEventListener('click', function(e) {
+      var item = e.target.closest('.gallery__item');
+      if (!item) return;
+      var idx = parseInt(item.getAttribute('data-lightbox-index'), 10);
+      if (!isNaN(idx)) openLightbox(idx);
+    });
+
+    // Keyboard activation on gallery items (Enter / Space)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        var item = e.target.closest('.gallery__item');
+        if (!item) return;
+        e.preventDefault();
+        var idx = parseInt(item.getAttribute('data-lightbox-index'), 10);
+        if (!isNaN(idx)) openLightbox(idx);
+      }
+    });
+
+    lightboxClose.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    // Click on backdrop closes, but NOT on the image itself
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    lightboxPrev.addEventListener('click', function(e) {
+      e.stopPropagation();
+      prevImage();
+    });
+
+    lightboxNext.addEventListener('click', function(e) {
+      e.stopPropagation();
+      nextImage();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('lightbox--active')) return;
+
+      if (e.key === 'Escape') {
+        closeLightbox();
+        return;
+      }
+      if (e.key === 'ArrowLeft') { prevImage(); return; }
+      if (e.key === 'ArrowRight') { nextImage(); return; }
+
+      // Focus trap
+      if (e.key === 'Tab') {
+        var firstFocusable = focusableEls[0];
+        var lastFocusable = focusableEls[focusableEls.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusable) {
+            e.preventDefault();
+            lastFocusable.focus();
+          }
+        } else {
+          if (document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable.focus();
+          }
+        }
+      }
+    });
+
+    // Touch swipe
+    var touchStartX = 0;
+    lightbox.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', function(e) {
+      var diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) prevImage();
+        else nextImage();
+      }
+    }, { passive: true });
+  }
+
+  /* ==========================================
+     SCROLL EFFECTS
+     ========================================== */
+  function initScrollEffects() {
+    var nav = document.getElementById('nav');
+    var hero = document.getElementById('hero');
+    var heroImage = document.getElementById('heroImage');
+    var heroHeight = hero.offsetHeight;
+    var ticking = false;
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          // Nav state
+          if (window.scrollY > heroHeight * 0.8) {
+            nav.classList.add('nav--scrolled');
+          } else {
+            nav.classList.remove('nav--scrolled');
+          }
+
+          // Hero parallax — scale up slightly as user scrolls
+          if (window.scrollY <= heroHeight) {
+            var progress = window.scrollY / heroHeight;
+            var scale = 1.0 + (progress * 0.08);
+            var offset = window.scrollY * 0.3;
+            heroImage.style.transform = 'scale(' + scale + ') translateY(' + offset + 'px)';
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Intersection observer for reveals
+    var reveals = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal--visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    } else {
+      reveals.forEach(function(el) {
+        el.classList.add('reveal--visible');
+      });
+    }
+
+    // Recalculate on resize
+    window.addEventListener('resize', function() {
+      heroHeight = hero.offsetHeight;
+    });
+  }
+
+  /* ==========================================
+     UTILITY
+     ========================================== */
+  function esc(str) {
+    if (!str) return '';
+    var d = document.createElement('div');
+    d.appendChild(document.createTextNode(str));
+    return d.innerHTML;
+  }
+
+})();
+</script>
+
+</body>
+</html>

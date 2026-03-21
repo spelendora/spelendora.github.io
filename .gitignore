@@ -1,0 +1,5 @@
+.DS_Store
+.vk-token
+porkbun.txt
+*.md
+!CNAME
