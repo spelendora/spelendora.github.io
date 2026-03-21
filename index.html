@@ -391,11 +391,14 @@ a {
   font-size: clamp(0.85rem, 1.4vw, 1.1rem);
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  /* Split color effect: left dark text, right dark text —
-     using a blended neutral that reads on both sides */
   color: var(--accent);
   opacity: 0;
   transform: translateY(-8px);
+}
+
+.center-name__gap {
+  display: inline-block;
+  width: 2em;
 }
 
 .center-name__rule {
@@ -642,7 +645,7 @@ a {
 
 <!-- Center name -->
 <div class="center-name">
-  <p class="center-name__text">Valeriy Grachev</p>
+  <p class="center-name__text"><span class="center-name__first">Valeriy</span><span class="center-name__gap"></span><span class="center-name__last">Grachev</span></p>
   <div class="center-name__rule"></div>
 </div>
 
