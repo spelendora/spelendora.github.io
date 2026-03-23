@@ -1466,7 +1466,7 @@ button {
       <div class="exp-item__top">
         <span class="exp-item__num">I</span>
         <div class="exp-item__header">
-          <h3 class="exp-item__company">Finery Markets / FinchTrade</h3>
+          <h3 class="exp-item__company">FinchTrade / Finery Markets</h3>
           <p class="exp-item__role">Platform Engineering Lead</p>
         </div>
         <div class="exp-item__meta">
@@ -1474,7 +1474,7 @@ button {
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Lead platform engineering for Finery Markets (CNBC Top 300 Fintech) and FinchTrade &mdash; a regulated crypto ECN and Swiss OTC desk. Report to CTO; set technical direction for institutional trading, market-making, and arbitrage infrastructure across 5 AWS regions with zero maintenance windows</li>
+        <li class="exp-item__bullet">Lead platform engineering for FinchTrade and Finery Markets (CNBC Top 300 Fintech) &mdash; a Swiss OTC desk and regulated crypto ECN. Report to CEO; set technical direction for institutional trading, market-making, and arbitrage infrastructure across 5 AWS regions with zero maintenance windows</li>
         <li class="exp-item__bullet">Architected multi-region AWS platform (5 regions, active-active) with domain-isolated EKS clusters enforcing blast-radius boundaries between trading core, OTC, and compliance workloads. 400+ pods, 50+ microservices, zero major incidents in 2+ years across 24/7 markets with no maintenance windows</li>
         <li class="exp-item__bullet">Built internal developer platform reducing service onboarding from days to minutes: developers write a 15-line deploy.yaml and get complete CI/CD with IRSA, secrets management, and database provisioning for 145+ repos. Evaluated Backstage; built purpose-fit tooling (FastAPI + React) due to crypto-domain regulatory constraints</li>
         <li class="exp-item__bullet">Achieved 50% cloud cost reduction: Karpenter with Graviton/ARM spot instances, Kubecost for per-team spend attribution, and custom Slack cost bot for real-time anomaly alerts</li>
@@ -1556,7 +1556,7 @@ button {
 <section class="projects" id="projects">
   <div class="projects__header">
     <p class="projects__heading">Selected Projects</p>
-    <p class="projects__count">4 projects &middot; Finery Technologies</p>
+    <p class="projects__count">6 projects &middot; FinchTrade / Finery Technologies</p>
   </div>
 
   <ul class="project-list">
@@ -1571,7 +1571,7 @@ button {
       <div class="project-card__metrics">
         <span class="project-card__metric">$170B+ Annual Volume</span>
         <span class="project-card__metric">5 AWS Regions</span>
-        <span class="project-card__metric">50% Cost Reduction</span>
+        <span class="project-card__metric">Active-Active</span>
       </div>
       <div class="project-card__tech">
         <span class="project-card__tech-tag">Pulumi</span>
@@ -1587,28 +1587,6 @@ button {
     <li class="project-card" data-delay="1">
       <div class="project-card__top">
         <span class="project-card__num">02</span>
-        <span class="project-card__tag">GitOps &amp; CI/CD</span>
-      </div>
-      <h3 class="project-card__name">GitOps Architecture &amp; Pipeline Automation</h3>
-      <p class="project-card__desc">Two-repo GitOps: platform team owns charts and Kyverno policies, developers only touch values files. Built a pipeline generator &mdash; developers write 15-line deploy.yaml, it produces complete CI/CD with IRSA, secrets, and database provisioning for 145+ repos.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">145+ Repositories</span>
-        <span class="project-card__metric">Auto-Discovery ApplicationSets</span>
-        <span class="project-card__metric">Two-Repo Separation</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">ArgoCD</span>
-        <span class="project-card__tech-tag">GitLab CI</span>
-        <span class="project-card__tech-tag">Helm</span>
-        <span class="project-card__tech-tag">Kyverno</span>
-        <span class="project-card__tech-tag">SOPS</span>
-        <span class="project-card__tech-tag">Python</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="2">
-      <div class="project-card__top">
-        <span class="project-card__num">03</span>
         <span class="project-card__tag">Platform Engineering</span>
       </div>
       <h3 class="project-card__name">Internal Developer Platform</h3>
@@ -1629,14 +1607,56 @@ button {
 
     <li class="project-card" data-delay="3">
       <div class="project-card__top">
+        <span class="project-card__num">03</span>
+        <span class="project-card__tag">FinOps</span>
+      </div>
+      <h3 class="project-card__name">FinOps &amp; Cost Engineering</h3>
+      <p class="project-card__desc">Achieved 50% cloud cost reduction across 5 AWS regions. Karpenter with Graviton/ARM and spot instances for compute, Kubecost for per-team spend attribution and anomaly detection. Built custom Slack cost bot &mdash; real-time alerts on spend spikes, weekly team-level reports, untagged resource tracking.</p>
+      <div class="project-card__metrics">
+        <span class="project-card__metric">50% Cost Reduction</span>
+        <span class="project-card__metric">Per-Team Attribution</span>
+        <span class="project-card__metric">Real-Time Alerts</span>
+      </div>
+      <div class="project-card__tech">
+        <span class="project-card__tech-tag">Kubecost</span>
+        <span class="project-card__tech-tag">Karpenter</span>
+        <span class="project-card__tech-tag">Graviton</span>
+        <span class="project-card__tech-tag">Slack Bolt</span>
+        <span class="project-card__tech-tag">Python</span>
+      </div>
+    </li>
+
+    <li class="project-card" data-delay="4">
+      <div class="project-card__top">
         <span class="project-card__num">04</span>
+        <span class="project-card__tag">Observability</span>
+      </div>
+      <h3 class="project-card__name">Observability &amp; Incident Intelligence</h3>
+      <p class="project-card__desc">VictoriaMetrics over Thanos &mdash; simpler ops, better compression for long-term retention. OTEL dual pipeline: metrics via Prometheus Remote Write, traces via Tempo. Robusta for AI-powered alert enrichment and auto-remediation playbooks. Every alert links to a runbook &mdash; contributing to zero major incidents in 2+ years.</p>
+      <div class="project-card__metrics">
+        <span class="project-card__metric">0 Major Incidents</span>
+        <span class="project-card__metric">AI Alert Enrichment</span>
+        <span class="project-card__metric">Dual OTEL Pipeline</span>
+      </div>
+      <div class="project-card__tech">
+        <span class="project-card__tech-tag">VictoriaMetrics</span>
+        <span class="project-card__tech-tag">OpenTelemetry</span>
+        <span class="project-card__tech-tag">Tempo</span>
+        <span class="project-card__tech-tag">Loki</span>
+        <span class="project-card__tech-tag">Robusta</span>
+      </div>
+    </li>
+
+    <li class="project-card" data-delay="5">
+      <div class="project-card__top">
+        <span class="project-card__num">05</span>
         <span class="project-card__tag">Service Mesh</span>
       </div>
       <h3 class="project-card__name">Istio Service Mesh Implementation</h3>
-      <p class="project-card__desc">Istio over Linkerd &mdash; more expressive AuthorizationPolicy for crypto compliance rules like "only compliance service calls KYT endpoint." Built 17-service demo replicating production topology. Gradual rollout: PERMISSIVE &rarr; STRICT mTLS per namespace.</p>
+      <p class="project-card__desc">Istio over Linkerd &mdash; more expressive AuthorizationPolicy for crypto compliance rules like &ldquo;only compliance service calls KYT endpoint.&rdquo; Built 17-service demo replicating production topology. Gradual rollout: PERMISSIVE &rarr; STRICT mTLS per namespace.</p>
       <div class="project-card__metrics">
         <span class="project-card__metric">17-Service Demo</span>
-        <span class="project-card__metric">PERMISSIVE → STRICT</span>
+        <span class="project-card__metric">PERMISSIVE &rarr; STRICT</span>
         <span class="project-card__metric">Crypto Compliance Policies</span>
       </div>
       <div class="project-card__tech">
@@ -1645,6 +1665,28 @@ button {
         <span class="project-card__tech-tag">Envoy</span>
         <span class="project-card__tech-tag">JWT Auth</span>
         <span class="project-card__tech-tag">FastAPI</span>
+      </div>
+    </li>
+
+    <li class="project-card" data-delay="6">
+      <div class="project-card__top">
+        <span class="project-card__num">06</span>
+        <span class="project-card__tag">Security &amp; Compliance</span>
+      </div>
+      <h3 class="project-card__name">Security &amp; Compliance Engineering</h3>
+      <p class="project-card__desc">Led organization through SOC 2 Type II and ISO 27001 audits with zero critical findings. SOPS over Vault &mdash; encrypted secrets in git, auditable, no extra infra at our scale. Container image signing (cosign/Sigstore), SBOM generation via Trivy, Nitro Enclaves for custody-adjacent confidential computing. MiCA readiness for EU crypto regulation deadline July 2026.</p>
+      <div class="project-card__metrics">
+        <span class="project-card__metric">SOC 2 Type II</span>
+        <span class="project-card__metric">ISO 27001</span>
+        <span class="project-card__metric">MiCA Ready</span>
+      </div>
+      <div class="project-card__tech">
+        <span class="project-card__tech-tag">SOPS</span>
+        <span class="project-card__tech-tag">Kyverno</span>
+        <span class="project-card__tech-tag">Trivy</span>
+        <span class="project-card__tech-tag">cosign/Sigstore</span>
+        <span class="project-card__tech-tag">Nitro Enclaves</span>
+        <span class="project-card__tech-tag">Prowler</span>
       </div>
     </li>
 
@@ -1765,7 +1807,7 @@ button {
       <div class="skill-group__tags">
         <span class="skill-tag">Python</span>
         <span class="skill-tag">Go</span>
-        <span class="skill-tag">Pydantic</span>
+        <span class="skill-tag">Bash</span>
       </div>
     </div>
 
