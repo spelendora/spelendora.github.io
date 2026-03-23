@@ -108,7 +108,7 @@ button {
    GRAIN OVERLAY (global, light)
    ============================================ */
 .grain {
-  position: fixed; inset: 0; z-index: 9000;
+  position: fixed; inset: 0; z-index: 7000;
   opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   background-size: 256px;
@@ -1231,7 +1231,10 @@ button {
     align-items: flex-start;
     gap: 0.8rem;
   }
-  .hero__nav { gap: 1.5rem; }
+  .hero__nav { gap: 1.2rem; }
+  .hero__nav a { padding: 0.75rem 0.5rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .footer__contact-trigger { padding: 0.75rem 1rem; min-height: 44px; }
+  .footer__link { padding: 0.75rem 0.5rem; }
   .hero__content { padding-bottom: 8vh; }
   .hero__scroll { display: none; }
 
@@ -1259,10 +1262,16 @@ button {
     grid-template-columns: 2rem 1fr;
     gap: 0 0.8rem;
   }
-  .exp-item__meta { display: none; }
+  .exp-item__meta {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 0.2rem;
+  }
   .exp-item__company {
     font-size: clamp(1.3rem, 5.5vw, 1.8rem);
   }
+  .exp-item:hover { padding-left: 0; }
+  .exp-item:hover .exp-item__company { color: var(--text); }
   .exp-item__bullets {
     padding-left: calc(2rem + 0.8rem);
   }
@@ -1311,6 +1320,12 @@ button {
 
   .exp-item__bullets {
     padding-left: 1.2rem;
+  }
+
+  .metrics__grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .skills__grid {
