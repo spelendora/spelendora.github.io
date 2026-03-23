@@ -287,14 +287,14 @@ button {
   max-width: 320px;
   width: 320px;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: none;
+  border: none;
   border-radius: 4px;
   font-family: var(--mono);
   font-size: 0.72rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--text-dim);
+  color: var(--accent);
   opacity: 0;
   transform: translateX(30px);
   display: flex;
@@ -1996,7 +1996,7 @@ button {
     if (prefersReducedMotion) {
       for (var i = 0; i < 3; i++) {
         var card = createCardElement(notifications[i]);
-        card.style.opacity = '0.075';
+        card.style.opacity = '1';
         card.style.transform = 'translateX(0)';
         card.style.top = (i * (CARD_HEIGHT + CARD_GAP)) + 'px';
         container.appendChild(card);
@@ -2023,7 +2023,7 @@ button {
 
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
-          card.style.opacity = '0.075';
+          card.style.opacity = '1';
           card.style.transform = 'translateX(0)';
         });
       });
