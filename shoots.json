@@ -22,7 +22,7 @@
       "description": "Ancient temple gardens, silk áo dài, and the quiet ceremony of the Lunar New Year — photographed in the final days of winter.",
       "location": "Hanoi, Vietnam",
       "date": "February 2026",
-      "hero": "photos/vietnam/DSC_1190.jpg",
+      "hero": "/photos/vietnam/DSC_1190.jpg",
       "heroAlt": "Silhouette of a man in white áo dài standing in a temple doorway, Hanoi",
       "cta": true,
       "about": [
@@ -33,107 +33,82 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_1142.jpg",
-          "alt": "Man in white áo dài with fan, standing by moon gate with cherry blossoms, Hanoi",
-          "caption": "White áo dài with fan, moon gate & cherry blossoms",
-          "id": "DSC_1142"
+          "src": "/photos/vietnam/DSC_1142.jpg",
+          "alt": "Man in white áo dài with fan, standing by moon gate with cherry blossoms, Hanoi"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/vietnam/DSC_0866.jpg",
-              "alt": "Close-up of red áo dài man seated with tea set, white áo dài man standing behind",
-              "caption": "Tea ceremony, red & white áo dài",
-              "id": "DSC_0866"
+              "src": "/photos/vietnam/DSC_0866.jpg",
+              "alt": "Close-up of red áo dài man seated with tea set, white áo dài man standing behind"
             },
             {
-              "src": "photos/vietnam/DSC_1167.jpg",
-              "alt": "Man in red áo dài with fan, moon gate background, Hanoi temple",
-              "caption": "Red áo dài with fan, moon gate",
-              "id": "DSC_1167"
+              "src": "/photos/vietnam/DSC_1167.jpg",
+              "alt": "Man in red áo dài with fan, moon gate background, Hanoi temple"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_0922.jpg",
-          "alt": "Two men standing together in garden, white and red áo dài, Hanoi",
-          "caption": "Garden portrait, white & red áo dài",
-          "id": "DSC_0922"
+          "src": "/photos/vietnam/DSC_0922.jpg",
+          "alt": "Two men standing together in garden, white and red áo dài, Hanoi"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/vietnam/DSC_1254.jpg",
-              "alt": "Dark close-up, side profile, white áo dài, chiaroscuro light",
-              "caption": "Side profile, chiaroscuro light",
-              "id": "DSC_1254"
+              "src": "/photos/vietnam/DSC_1254.jpg",
+              "alt": "Dark close-up, side profile, white áo dài, chiaroscuro light"
             },
             {
-              "src": "photos/vietnam/DSC_1222.jpg",
-              "alt": "Man in red áo dài sitting on stone stairs, contemplative, Hanoi temple",
-              "caption": "Contemplation on stone stairs",
-              "id": "DSC_1222"
+              "src": "/photos/vietnam/DSC_1222.jpg",
+              "alt": "Man in red áo dài sitting on stone stairs, contemplative, Hanoi temple"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_1025.jpg",
-          "alt": "Two men, one crouching in red áo dài, one standing in white áo dài, temple courtyard",
-          "caption": "Temple courtyard, crouching & standing",
-          "id": "DSC_1025"
+          "src": "/photos/vietnam/DSC_1025.jpg",
+          "alt": "Two men, one crouching in red áo dài, one standing in white áo dài, temple courtyard"
         },
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_1116.jpg",
-          "alt": "Two men by circular moon gate wall with cherry blossoms, Hanoi",
-          "caption": "Moon gate wall with cherry blossoms",
-          "id": "DSC_1116"
+          "src": "/photos/vietnam/DSC_1116.jpg",
+          "alt": "Two men by circular moon gate wall with cherry blossoms, Hanoi"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/vietnam/DSC_0832.jpg",
-              "alt": "Man in white áo dài, soft garden light, turning toward camera",
-              "caption": "Soft garden light, turning glance",
-              "id": "DSC_0832"
+              "src": "/photos/vietnam/DSC_0832.jpg",
+              "alt": "Man in white áo dài, soft garden light, turning toward camera"
             },
             {
-              "src": "photos/vietnam/DSC_0836.jpg",
-              "alt": "Man in red áo dài, garden path, natural framing",
-              "caption": "Garden path, natural framing",
-              "id": "DSC_0836"
+              "src": "/photos/vietnam/DSC_0836.jpg",
+              "alt": "Man in red áo dài, garden path, natural framing"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_1244.jpg",
-          "alt": "Man in white áo dài, low angle, atmospheric portrait, Hanoi",
-          "caption": "Low angle, atmospheric portrait",
-          "id": "DSC_1244"
+          "src": "/photos/vietnam/DSC_1244.jpg",
+          "alt": "Man in white áo dài, low angle, atmospheric portrait, Hanoi"
         },
         {
           "type": "full",
-          "src": "photos/vietnam/DSC_1346.jpg",
-          "alt": "Close dual profile shot, both men, dark background",
-          "caption": "Dual profile, dark studio light",
-          "id": "DSC_1346"
+          "src": "/photos/vietnam/DSC_1346.jpg",
+          "alt": "Close dual profile shot, both men, dark background"
         }
       ]
     },
     {
-      "id": "cold-winter-editorial",
       "title": "Cold",
       "subtitle": "Collection II",
       "description": "Expired film, a snowstorm outside Moscow, and three figures in houndstooth moving through a landscape stripped to white.",
       "location": "Russia",
       "date": "Winter 2024",
-      "hero": "photos/cold/cold-01-trio-closeup.jpg",
+      "hero": "/photos/cold/cold-01-trio-closeup.jpg",
       "heroAlt": "Three models in winter coats, intimate black and white close-up against snow",
       "cta": true,
       "about": [
@@ -144,48 +119,42 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/cold/cold-01-trio-closeup.jpg",
+          "src": "/photos/cold/cold-01-trio-closeup.jpg",
           "alt": "Three models in plaid and houndstooth coats, intimate black and white close-up",
-          "caption": "Trio, plaid & houndstooth, B&W close-up",
           "id": "COLD_01"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/cold/cold-04-duo-capes.jpg",
+              "src": "/photos/cold/cold-04-duo-capes.jpg",
               "alt": "Two men in heavy overcoats and capes standing in snow",
-              "caption": "Overcoats in the snow, duo & solo",
               "id": "COLD_04"
             },
             {
-              "src": "photos/cold/cold-03-closeup-and-tree.jpg",
+              "src": "/photos/cold/cold-03-closeup-and-tree.jpg",
               "alt": "B&W close-up of two male faces in houndstooth, man standing alone by snow-laden tree",
-              "caption": "Close-up & solitude by the frozen tree",
               "id": "COLD_03"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/cold/cold-02-trio-snow-forest.jpg",
+          "src": "/photos/cold/cold-02-trio-snow-forest.jpg",
           "alt": "Three models in plaid overcoats grouped together in snowy forest, blue-toned film",
-          "caption": "Snow forest trio & hooded apparition",
           "id": "COLD_02"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/cold/cold-05-girl-frost-trees.jpg",
+              "src": "/photos/cold/cold-05-girl-frost-trees.jpg",
               "alt": "Woman in grey sweater standing among frost-covered trees, blue film tone",
-              "caption": "Frost-covered branches, blue hour",
               "id": "COLD_05"
             },
             {
-              "src": "photos/cold/cold-06-embrace-snowfield.jpg",
+              "src": "/photos/cold/cold-06-embrace-snowfield.jpg",
               "alt": "Two figures embracing in vast blue snowfield at dusk",
-              "caption": "Embrace at the edge of the snowfield",
               "id": "COLD_06"
             }
           ]
@@ -194,15 +163,13 @@
           "type": "pair",
           "images": [
             {
-              "src": "photos/cold/cold-08-polkadot-sign.jpg",
+              "src": "/photos/cold/cold-08-polkadot-sign.jpg",
               "alt": "B&W diptych: man in polka-dot shirt in snow, lone road sign in empty snowfield",
-              "caption": "Polka-dot & road sign, twin solitudes",
               "id": "COLD_08"
             },
             {
-              "src": "photos/cold/cold-07-hooded-portrait.jpg",
+              "src": "/photos/cold/cold-07-hooded-portrait.jpg",
               "alt": "Extreme close-up of two faces in houndstooth scarves, B&W, blonde model in plaid on film",
-              "caption": "Houndstooth close-up & plaid on film",
               "id": "COLD_07"
             }
           ]
@@ -210,13 +177,12 @@
       ]
     },
     {
-      "id": "river-summer-editorial",
       "title": "Silk River",
       "subtitle": "Collection III",
       "description": "One floral robe, one summer evening, one river. The point was never the clothing.",
       "location": "Russia",
       "date": "Summer 2024",
-      "hero": "photos/river/river-01-tree-diptych.jpg",
+      "hero": "/photos/river/river-01-tree-diptych.jpg",
       "heroAlt": "Diptych of woman against ancient tree in golden light, color and black & white",
       "cta": true,
       "about": [
@@ -227,76 +193,67 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/river/river-01-tree-diptych.jpg",
+          "src": "/photos/river/river-01-tree-diptych.jpg",
           "alt": "Diptych: woman leaning against ancient willow tree in golden light, and B&W figure among dark branches",
-          "caption": "Ancient willow, golden light & shadow",
           "id": "RIVER_01"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/river/river-02-wind-hillside.jpg",
+              "src": "/photos/river/river-02-wind-hillside.jpg",
               "alt": "Woman in floral robe on hillside, windswept hair, black and white with river valley behind",
-              "caption": "Windswept on the hillside, B&W",
               "id": "RIVER_02"
             },
             {
-              "src": "photos/river/river-03-wildflowers-gaze.jpg",
+              "src": "/photos/river/river-03-wildflowers-gaze.jpg",
               "alt": "Woman standing among dried wildflowers in floral dress, golden flash light against dark background",
-              "caption": "Among the wildflowers, golden flash",
               "id": "RIVER_03"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/river/river-05-hidden-foliage.jpg",
+          "src": "/photos/river/river-05-hidden-foliage.jpg",
           "alt": "Woman hidden among dried stems and foliage, floral robe merging with dried flowers, dark moody light",
-          "caption": "Hidden in foliage, robe merging with stems",
           "id": "RIVER_05"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/river/river-06-dress-detail.jpg",
+              "src": "/photos/river/river-06-dress-detail.jpg",
               "alt": "Diptych: B&W detail of floral robe fabric against grass, and color shot of woman reaching through wildflowers",
-              "caption": "Fabric & flowers, detail diptych",
               "id": "RIVER_06"
             },
             {
-              "src": "photos/river/river-04-through-stems.jpg",
+              "src": "/photos/river/river-04-through-stems.jpg",
               "alt": "Woman in floral print among dried wildflower stems, intimate close framing with flash",
-              "caption": "Through the stems, intimate flash",
               "id": "RIVER_04"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/river/river-07-water-sun.jpg",
+          "src": "/photos/river/river-07-water-sun.jpg",
           "alt": "Diptych: woman floating in river at sunset with sun reflections, and abstract B&W water texture",
-          "caption": "River at sunset & water abstraction",
           "id": "RIVER_07"
         },
         {
           "type": "full",
-          "src": "photos/river/river-08-landscape-splash.jpg",
+          "src": "/photos/river/river-08-landscape-splash.jpg",
           "alt": "Diptych: B&W river landscape at dusk, and close-up of water splashing over body with embroidered fabric",
-          "caption": "River landscape & water on silk",
           "id": "RIVER_08"
         }
       ]
     },
     {
-      "id": "mbfw-backstage",
       "title": "Backstage Moscow",
       "subtitle": "Collection IV",
       "description": "Backstage at Mercedes-Benz Fashion Week Moscow. Concrete walls, blue carpet, the seconds before the runway.",
       "location": "Moscow, Russia",
       "date": "2023",
-      "hero": "photos/mbfw/mbfw-01-model-velvet.jpg",
+      "hero": "/photos/mbfw/mbfw-01-model-velvet.jpg",
       "heroAlt": "Young model in velvet corset top against grey concrete wall backstage at MBFW Moscow",
       "cta": true,
       "about": [
@@ -306,48 +263,42 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/mbfw/mbfw-01-model-velvet.jpg",
+          "src": "/photos/mbfw/mbfw-01-model-velvet.jpg",
           "alt": "Young model in velvet corset and satin skirt, standing alone against grey concrete wall backstage",
-          "caption": "Velvet & satin, concrete backstage",
           "id": "MBFW_01"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/mbfw/mbfw-02-model-red-stripe.jpg",
+              "src": "/photos/mbfw/mbfw-02-model-red-stripe.jpg",
               "alt": "Male model in red and black striped top, profile portrait, industrial lighting",
-              "caption": "Red stripe, industrial light",
               "id": "MBFW_02"
             },
             {
-              "src": "photos/mbfw/mbfw-04-crowd-bw.jpg",
+              "src": "/photos/mbfw/mbfw-04-crowd-bw.jpg",
               "alt": "Backstage crowd of models and stylists in black and white, tight framing",
-              "caption": "The briefing, B&W",
               "id": "MBFW_04"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/mbfw/mbfw-03-group-backstage.jpg",
+          "src": "/photos/mbfw/mbfw-03-group-backstage.jpg",
           "alt": "Group of five models standing together backstage in mixed streetwear and fashion, concrete and blue light",
-          "caption": "Lineup, concrete & blue light",
           "id": "MBFW_03"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/mbfw/mbfw-05-blue-carpet.jpg",
+              "src": "/photos/mbfw/mbfw-05-blue-carpet.jpg",
               "alt": "Models walking on blue carpet, cropped at waist showing fashion details and movement",
-              "caption": "Blue carpet, movement & detail",
               "id": "MBFW_05"
             },
             {
-              "src": "photos/mbfw/mbfw-06-backstage-moment.jpg",
+              "src": "/photos/mbfw/mbfw-06-backstage-moment.jpg",
               "alt": "Candid backstage moment, models interacting on blue carpet, laughing and adjusting",
-              "caption": "Between shows, unguarded",
               "id": "MBFW_06"
             }
           ]
@@ -356,15 +307,13 @@
           "type": "pair",
           "images": [
             {
-              "src": "photos/mbfw/mbfw-07-red-boots.jpg",
+              "src": "/photos/mbfw/mbfw-07-red-boots.jpg",
               "alt": "Red pointed boots on blue carpet, detail shot, backstage chaos around",
-              "caption": "Red boots on blue carpet",
               "id": "MBFW_07"
             },
             {
-              "src": "photos/mbfw/mbfw-08-prep-scene.jpg",
+              "src": "/photos/mbfw/mbfw-08-prep-scene.jpg",
               "alt": "Backstage prep scene, stylists dressing models, brocade shorts and red bandana details",
-              "caption": "Last adjustments before the show",
               "id": "MBFW_08"
             }
           ]
@@ -378,7 +327,7 @@
       "description": "Portra 400 and an iPhone. Markets, bamboo scaffolding, island sunsets — the city between typhoons.",
       "location": "Hong Kong",
       "date": "2025",
-      "hero": "photos/hongkong/hk-01-umbrellas-painted-ground.jpg",
+      "hero": "/photos/hongkong/hk-01-umbrellas-painted-ground.jpg",
       "heroAlt": "Two figures with umbrellas crossing a painted blue and orange ground, aerial view, Hong Kong",
       "cta": true,
       "about": [
@@ -389,31 +338,27 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/hongkong/hk-01-umbrellas-painted-ground.jpg",
+          "src": "/photos/hongkong/hk-01-umbrellas-painted-ground.jpg",
           "alt": "Two figures with umbrellas crossing a painted blue and orange ground, aerial view, Hong Kong",
-          "caption": "Umbrellas on painted ground",
           "id": "HK_01"
         },
         {
           "type": "full",
-          "src": "photos/hongkong/hk-02-plaza-towers-portra.jpg",
+          "src": "/photos/hongkong/hk-02-plaza-towers-portra.jpg",
           "alt": "Urban plaza with painted ground and tower blocks, woman with umbrella, Portra tones, Hong Kong",
-          "caption": "Plaza & towers, Portra 400",
           "id": "HK_02"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/hongkong/hk-03-bamboo-cyclist.jpg",
+              "src": "/photos/hongkong/hk-03-bamboo-cyclist.jpg",
               "alt": "Man on folding bicycle framed by bamboo scaffolding and red signage, Hong Kong",
-              "caption": "Bamboo scaffold, folding bike",
               "id": "HK_03"
             },
             {
-              "src": "photos/hongkong/hk-04-backstreet-bicycles.jpg",
+              "src": "/photos/hongkong/hk-04-backstreet-bicycles.jpg",
               "alt": "Quiet backstreet with parked bicycles and green awnings, Hong Kong",
-              "caption": "Backstreet bicycles",
               "id": "HK_04"
             }
           ]
@@ -422,24 +367,21 @@
           "type": "pair",
           "images": [
             {
-              "src": "photos/hongkong/hk-05-island-sunset-portra.jpg",
+              "src": "/photos/hongkong/hk-05-island-sunset-portra.jpg",
               "alt": "Island silhouette at sunset, golden sky, shot on Portra film with sprocket marks visible",
-              "caption": "Island sunset, Portra 400",
               "id": "HK_05"
             },
             {
-              "src": "photos/hongkong/hk-06-harbour-storm-portra.jpg",
+              "src": "/photos/hongkong/hk-06-harbour-storm-portra.jpg",
               "alt": "Hong Kong harbour under storm clouds at dusk, purple tones, Portra film with edge marks",
-              "caption": "Harbour storm, Portra 400",
               "id": "HK_06"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/hongkong/hk-07-contact-sheet.jpg",
+          "src": "/photos/hongkong/hk-07-contact-sheet.jpg",
           "alt": "Contact sheet of Kodak film showing Hong Kong streets, sunsets, and harbour scenes",
-          "caption": "Contact sheet, Kodak Portra & 200",
           "id": "HK_07"
         }
       ]
@@ -451,7 +393,7 @@
       "description": "A white horse, a Russian field in clover, two figures in Victorian riding coats. Poe's 'Annabel Lee' as a fashion editorial.",
       "location": "Russia",
       "date": "2016",
-      "hero": "photos/celestial/cv-02-face-horse-eye.jpg",
+      "hero": "/photos/celestial/cv-02-face-horse-eye.jpg",
       "heroAlt": "Diptych: close-up of woman's face beside horse's eye, black and white, Russian field",
       "cta": true,
       "about": [
@@ -462,55 +404,48 @@
       "layout": [
         {
           "type": "full",
-          "src": "photos/celestial/cv-01-rider-white-horse.jpg",
+          "src": "/photos/celestial/cv-01-rider-white-horse.jpg",
           "alt": "Woman in crimson riding coat on white horse in green clover field, overcast Russian light",
-          "caption": "Crimson coat, white horse, clover field",
           "id": "CV_01"
         },
         {
           "type": "full",
-          "src": "photos/celestial/cv-02-face-horse-eye.jpg",
+          "src": "/photos/celestial/cv-02-face-horse-eye.jpg",
           "alt": "Diptych: close-up of woman's face beside horse's eye in black and white, and lone rider against power line in field",
-          "caption": "Face & horse eye, B&W diptych",
           "id": "CV_02"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/celestial/cv-03-horse-fence-bw.jpg",
+              "src": "/photos/celestial/cv-03-horse-fence-bw.jpg",
               "alt": "Horse standing behind wooden fence, black and white, rural Russia",
-              "caption": "Paddock fence, B&W",
               "id": "CV_03"
             },
             {
-              "src": "photos/celestial/cv-05-cross-glove-detail.jpg",
+              "src": "/photos/celestial/cv-05-cross-glove-detail.jpg",
               "alt": "Detail of silver cross pendant and lace glove on black wool coat, black and white",
-              "caption": "Cross & glove, detail",
               "id": "CV_05"
             }
           ]
         },
         {
           "type": "full",
-          "src": "photos/celestial/cv-04-duo-jewelry-detail.jpg",
+          "src": "/photos/celestial/cv-04-duo-jewelry-detail.jpg",
           "alt": "Diptych: two figures in crimson and black coats facing each other in field, and close-up of silver jewelry on crimson wool",
-          "caption": "Duo portrait & jewelry detail",
           "id": "CV_04"
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "photos/celestial/cv-06-riding-lowangle.jpg",
+              "src": "/photos/celestial/cv-06-riding-lowangle.jpg",
               "alt": "Diptych: color detail of crimson riding coat on white horse, and B&W low-angle of two figures against sky",
-              "caption": "Riding detail & low-angle duo",
               "id": "CV_06"
             },
             {
-              "src": "photos/celestial/cv-07-horse-lead-golden.jpg",
+              "src": "/photos/celestial/cv-07-horse-lead-golden.jpg",
               "alt": "Diptych: B&W figure leading white horse through field, and golden hour silhouette of rider against sunset",
-              "caption": "Golden hour & horse lead",
               "id": "CV_07"
             }
           ]
