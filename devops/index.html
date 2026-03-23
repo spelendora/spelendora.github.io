@@ -1971,21 +1971,25 @@ button {
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     var notifications = [
-      { type: 'green', text: 'argocd sync trading-engine \u2192 Healthy' },
-      { type: 'green', text: 'pipeline #4821 \u2014 all checks passed' },
-      { type: 'amber', text: 'cpu spike eu-west-1 \u2014 auto-scaling' },
-      { type: 'green', text: 'canary release v3.14.1 \u2192 100%' },
-      { type: 'green', text: 'kyverno: 0 policy violations' },
-      { type: 'green', text: 'daily backup: 0 errors' },
-      { type: 'green', text: '99.999% SLA \u2014 26s downtime YTD' },
-      { type: 'green', text: 'flux reconcile: 23 apps synced' },
-      { type: 'green', text: 'trivy scan: 0 critical vulns' },
-      { type: 'amber', text: 'cert expiry in 14d \u2014 renewal queued' }
+      { type: 'green', text: 'argocd sync core-otc \u2192 Healthy (3/3 pods)' },
+      { type: 'green', text: 'gitlab pipeline #12847 \u2014 all stages passed' },
+      { type: 'green', text: 'kyverno: 0 policy violations across 5 clusters' },
+      { type: 'green', text: 'velero backup prod-apne1 \u2014 completed 2m14s' },
+      { type: 'green', text: 'trivy scan: 0 critical, 0 high vulns' },
+      { type: 'green', text: 'kubecost: cloud spend -3.2% vs last week' },
+      { type: 'amber', text: 'karpenter: spot interruption eu-west-1 \u2014 node replaced 47s' },
+      { type: 'green', text: 'cnpg cluster trading-db: 3/3 replicas healthy' },
+      { type: 'green', text: 'istio mTLS: 100% strict across all namespaces' },
+      { type: 'green', text: 'pulumi drift-detect: 0 changes detected' },
+      { type: 'amber', text: 'cert-manager: wildcard renewal in 12d \u2014 queued' },
+      { type: 'green', text: 'robusta: alert enrichment \u2014 0 active incidents' },
+      { type: 'green', text: 'victoria-metrics: 99.999% write availability' },
+      { type: 'green', text: 'cosign: all 52 images verified \u2014 signatures valid' }
     ];
 
     var currentIndex = 0;
     var activeCards = [];
-    var MAX_VISIBLE = 4;
+    var MAX_VISIBLE = 6;
     var CARD_GAP = 8;
     var CARD_HEIGHT = 42;
     var SLIDE_DURATION = 500;
@@ -2008,7 +2012,7 @@ button {
     }
 
     if (prefersReducedMotion) {
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 6; i++) {
         var card = createCardElement(notifications[i]);
         card.style.opacity = '1';
         card.style.transform = 'translateX(0)';
