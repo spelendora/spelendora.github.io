@@ -174,7 +174,8 @@
             }
           ]
         }
-      ]
+      ],
+      "id": "cold-winter"
     },
     {
       "title": "Silk River",
@@ -245,7 +246,8 @@
           "alt": "Diptych: B&W river landscape at dusk, and close-up of water splashing over body with embroidered fabric",
           "id": "RIVER_08"
         }
-      ]
+      ],
+      "id": "silk-river"
     },
     {
       "title": "Backstage Moscow",
@@ -318,7 +320,8 @@
             }
           ]
         }
-      ]
+      ],
+      "id": "backstage-moscow"
     },
     {
       "id": "hongkong-streets",
@@ -449,6 +452,69 @@
               "id": "CV_07"
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "personal",
+      "title": "Personal",
+      "subtitle": "Miscellaneous",
+      "description": "Flash portraits, film landscapes, and the in-between moments — a collection of personal work across Moscow, Southeast Asia, and elsewhere.",
+      "location": "Various",
+      "date": "2019 — 2025",
+      "hero": "/photos/personal/personal-02.jpg",
+      "heroAlt": "",
+      "cta": false,
+      "about": [
+        "A loose collection of personal work — night flash at train stations, rooftop energy, intimate diptychs, film landscapes, and street light. No brief, no client, just the camera and whatever felt right."
+      ],
+      "details": "Various locations · 2019–2025 | Flash, natural light, film | Nikon, iPhone",
+      "layout": [
+        {
+          "type": "full",
+          "src": "/photos/personal/personal-01.jpg",
+          "alt": ""
+        },
+        {
+          "type": "pair",
+          "images": [
+            {
+              "src": "/photos/personal/personal-02.jpg",
+              "alt": ""
+            },
+            {
+              "src": "/photos/personal/personal-03.jpg",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "full",
+          "src": "/photos/personal/personal-04.jpg",
+          "alt": ""
+        },
+        {
+          "type": "pair",
+          "images": [
+            {
+              "src": "/photos/personal/personal-05.jpg",
+              "alt": ""
+            },
+            {
+              "src": "/photos/personal/personal-06.jpg",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "full",
+          "src": "/photos/personal/personal-07.jpg",
+          "alt": ""
+        },
+        {
+          "type": "full",
+          "src": "/photos/personal/personal-08.jpg",
+          "alt": ""
         }
       ]
     }
