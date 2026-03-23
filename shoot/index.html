@@ -8,7 +8,7 @@
 <meta property="og:title" content="Valeriy Grachev — Photography">
 <meta property="og:description" content="Editorial & documentary photography collection.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -1163,7 +1163,7 @@ button {
 </head>
 <body>
 
-<noscript><style>.loader{display:none!important}</style><div style="padding:4rem;color:#e8e4df;font-family:Georgia,serif;text-align:center"><h1>Valeriy Grachev</h1><p style="margin-top:1rem;color:#9a968f">This portfolio requires JavaScript to display content.</p><a href="photography.html" style="color:#8b6f4e;margin-top:2rem;display:inline-block">&larr; Back to Portfolio</a></div></noscript>
+<noscript><style>.loader{display:none!important}</style><div style="padding:4rem;color:#e8e4df;font-family:Georgia,serif;text-align:center"><h1>Valeriy Grachev</h1><p style="margin-top:1rem;color:#9a968f">This portfolio requires JavaScript to display content.</p><a href="/photography" style="color:#8b6f4e;margin-top:2rem;display:inline-block">&larr; Back to Portfolio</a></div></noscript>
 
 <!-- Loader -->
 <div class="loader" id="loader"><span>Loading</span></div>
@@ -1184,7 +1184,7 @@ button {
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
-  <a href="photography.html" class="nav__back">
+  <a href="/photography" class="nav__back">
     <span class="nav__back-arrow">&larr;</span>
     <span>All Works</span>
   </a>
@@ -1240,11 +1240,11 @@ button {
   var shootId = params.get('id');
 
   if (!shootId) {
-    window.location.href = 'index.html';
+    window.location.href = '/photography';
     return;
   }
 
-  fetch('shoots.json')
+  fetch('/shoots.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
       var shoots = data.shoots;
@@ -1259,7 +1259,7 @@ button {
       }
 
       if (index === -1) {
-        window.location.href = 'index.html';
+        window.location.href = '/photography';
         return;
       }
 
@@ -1305,7 +1305,7 @@ button {
         '<div class="error-state">' +
           '<h2>Unable to load collection</h2>' +
           '<p>Please check your connection and try again.</p>' +
-          '<a href="photography.html">&larr; Back to Portfolio</a>' +
+          '<a href="/photography">&larr; Back to Portfolio</a>' +
         '</div>';
     });
 
@@ -1457,13 +1457,13 @@ button {
 
     // Previous
     if (prev) {
-      html += '<a href="shoot.html?id=' + encodeURIComponent(prev.id) + '" class="shoot-nav__link">' +
+      html += '<a href="/shoot?id=' + encodeURIComponent(prev.id) + '" class="shoot-nav__link">' +
         '<span class="shoot-nav__direction">&larr; Previous</span>' +
         '<span class="shoot-nav__title">' + esc(prev.title) + '</span>' +
         '<span class="shoot-nav__location">' + esc(prev.location) + '</span>' +
         '</a>';
     } else {
-      html += '<a href="photography.html" class="shoot-nav__link">' +
+      html += '<a href="/photography" class="shoot-nav__link">' +
         '<span class="shoot-nav__direction">&larr; Back</span>' +
         '<span class="shoot-nav__title">All Works</span>' +
         '<span class="shoot-nav__location">Portfolio</span>' +
@@ -1472,13 +1472,13 @@ button {
 
     // Next
     if (next) {
-      html += '<a href="shoot.html?id=' + encodeURIComponent(next.id) + '" class="shoot-nav__link">' +
+      html += '<a href="/shoot?id=' + encodeURIComponent(next.id) + '" class="shoot-nav__link">' +
         '<span class="shoot-nav__direction">Next &rarr;</span>' +
         '<span class="shoot-nav__title">' + esc(next.title) + '</span>' +
         '<span class="shoot-nav__location">' + esc(next.location) + '</span>' +
         '</a>';
     } else {
-      html += '<a href="photography.html" class="shoot-nav__link">' +
+      html += '<a href="/photography" class="shoot-nav__link">' +
         '<span class="shoot-nav__direction">Back &rarr;</span>' +
         '<span class="shoot-nav__title">All Works</span>' +
         '<span class="shoot-nav__location">Portfolio</span>' +
@@ -1493,7 +1493,7 @@ button {
      ========================================== */
   function renderFooter(photographer) {
     var footer = document.getElementById('footer');
-    var linksHtml = '<a href="photography.html" class="footer__link">Home</a>';
+    var linksHtml = '<a href="/photography" class="footer__link">Home</a>';
 
     if (photographer.email) {
       linksHtml += '<a href="mailto:' + esc(photographer.email) + '" class="footer__link">Email</a>';

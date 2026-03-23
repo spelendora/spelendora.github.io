@@ -9,8 +9,8 @@
 <meta property="og:description" content="Fashion and editorial photographer working across Bangkok, Moscow, and Hong Kong. Available for commissions worldwide.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Valeriy Grachev Photography">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preload" as="image" href="photos/vietnam/DSC_1190.jpg" fetchpriority="high">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" as="image" href="/photos/vietnam/DSC_1190.jpg" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -855,7 +855,7 @@ body::after {
   <div class="hero__bar">
     <p class="hero__tagline" id="tagline"></p>
     <ul class="hero__nav" id="heroNav">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#works">Work</a></li>
       <li><a href="#contact" id="contactTrigger">Contact</a></li>
     </ul>
@@ -910,7 +910,7 @@ body::after {
   /* ------------------------------------------
      BOOT
      ------------------------------------------ */
-  fetch('shoots.json')
+  fetch('/shoots.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
       var p = data.photographer;
@@ -996,7 +996,7 @@ body::after {
 
       var a = document.createElement('a');
       a.className = 'works__link';
-      a.href = 'shoot.html?id=' + encodeURIComponent(shoot.id);
+      a.href = '/shoot?id=' + encodeURIComponent(shoot.id);
 
       var titleEl = document.createElement('h2');
       titleEl.className = 'works__title';
@@ -1211,7 +1211,7 @@ body::after {
 
     /* Home link */
     var homeLink = document.createElement('a');
-    homeLink.href = 'home.html';
+    homeLink.href = '/';
     homeLink.className = 'footer__link';
     homeLink.textContent = 'Home';
     links.appendChild(homeLink);
