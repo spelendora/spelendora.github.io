@@ -33,72 +33,44 @@
       "layout": [
         {
           "type": "full",
-          "src": "/photos/vietnam/DSC_1142.jpg",
-          "alt": "Man in white áo dài with fan, standing by moon gate with cherry blossoms, Hanoi"
+          "src": "/photos/vietnam-release/DSC_0832_1.jpg",
+          "alt": ""
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "/photos/vietnam/DSC_0866.jpg",
-              "alt": "Close-up of red áo dài man seated with tea set, white áo dài man standing behind"
+              "src": "/photos/vietnam-release/DSC_0832_6.jpg",
+              "alt": ""
             },
             {
-              "src": "/photos/vietnam/DSC_1167.jpg",
-              "alt": "Man in red áo dài with fan, moon gate background, Hanoi temple"
+              "src": "/photos/vietnam-release/DSC_0832_5.jpg",
+              "alt": ""
             }
           ]
         },
         {
           "type": "full",
-          "src": "/photos/vietnam/DSC_0922.jpg",
-          "alt": "Two men standing together in garden, white and red áo dài, Hanoi"
+          "src": "/photos/vietnam-release/DSC_0832_2.jpg",
+          "alt": ""
         },
         {
           "type": "pair",
           "images": [
             {
-              "src": "/photos/vietnam/DSC_1254.jpg",
-              "alt": "Dark close-up, side profile, white áo dài, chiaroscuro light"
+              "src": "/photos/vietnam-release/DSC_0832_3.jpg",
+              "alt": ""
             },
             {
-              "src": "/photos/vietnam/DSC_1222.jpg",
-              "alt": "Man in red áo dài sitting on stone stairs, contemplative, Hanoi temple"
+              "src": "/photos/vietnam-release/DSC_0832_4.jpg",
+              "alt": ""
             }
           ]
         },
         {
           "type": "full",
-          "src": "/photos/vietnam/DSC_1025.jpg",
-          "alt": "Two men, one crouching in red áo dài, one standing in white áo dài, temple courtyard"
-        },
-        {
-          "type": "full",
-          "src": "/photos/vietnam/DSC_1116.jpg",
-          "alt": "Two men by circular moon gate wall with cherry blossoms, Hanoi"
-        },
-        {
-          "type": "pair",
-          "images": [
-            {
-              "src": "/photos/vietnam/DSC_0832.jpg",
-              "alt": "Man in white áo dài, soft garden light, turning toward camera"
-            },
-            {
-              "src": "/photos/vietnam/DSC_0836.jpg",
-              "alt": "Man in red áo dài, garden path, natural framing"
-            }
-          ]
-        },
-        {
-          "type": "full",
-          "src": "/photos/vietnam/DSC_1244.jpg",
-          "alt": "Man in white áo dài, low angle, atmospheric portrait, Hanoi"
-        },
-        {
-          "type": "full",
-          "src": "/photos/vietnam/DSC_1346.jpg",
-          "alt": "Close dual profile shot, both men, dark background"
+          "src": "/photos/vietnam-release/DSC_0832.jpg",
+          "alt": ""
         }
       ]
     },
