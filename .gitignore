@@ -3,3 +3,7 @@
 porkbun.txt
 *.md
 !CNAME
+
+cv-pdf/
+generate-cv-pdf.py
+cv-data.json
