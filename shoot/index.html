@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading — Valeriy Grachev</title>
+<title>Valeriy Grachev — Photography</title>
 <meta name="description" content="Valeriy Grachev — Editorial & documentary photography collection.">
 <meta property="og:title" content="Valeriy Grachev — Photography">
 <meta property="og:description" content="Editorial & documentary photography collection.">
@@ -25,7 +25,7 @@
 :root {
   --bg: #060606;
   --text: #e8e4df;
-  --text-dim: #9e9a95;
+  --text-dim: #9a968f;
   --accent: #8b6f4e;
   --accent-light: #b89b70;
   --muted: #8a857e;
@@ -970,7 +970,14 @@ button {
 
   .lightbox__nav--prev { left: 0.5rem; }
   .lightbox__nav--next { right: 0.5rem; }
-  .lightbox__caption { display: none; }
+  .lightbox__caption {
+    position: static;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  .nav__back { padding: 0.75rem 0.5rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .footer__link { padding: 0.75rem 0.5rem; }
 }
 
 @media (max-width: 480px) {
@@ -1493,7 +1500,8 @@ button {
      ========================================== */
   function renderFooter(photographer) {
     var footer = document.getElementById('footer');
-    var linksHtml = '<a href="/photography" class="footer__link">Home</a>';
+    var linksHtml = '<a href="/" class="footer__link">Home</a>';
+    linksHtml += '<a href="/photography" class="footer__link">Photography</a>';
 
     if (photographer.email) {
       linksHtml += '<a href="mailto:' + esc(photographer.email) + '" class="footer__link">Email</a>';
