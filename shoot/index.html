@@ -1531,6 +1531,20 @@ button {
         '</div>';
     }
 
+    if (p.socials && p.socials.line) {
+      html += '<div class="contact-overlay__item">' +
+        '<span class="contact-overlay__item-label">Line</span>' +
+        '<a href="' + esc(p.socials.line) + '" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">spelendora</a>' +
+        '</div>';
+    }
+
+    if (p.socials && p.socials.whatsapp) {
+      html += '<div class="contact-overlay__item">' +
+        '<span class="contact-overlay__item-label">WhatsApp</span>' +
+        '<a href="' + esc(p.socials.whatsapp) + '" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">+7 985 911 38 56</a>' +
+        '</div>';
+    }
+
     if (p.socials && p.socials.linkedin) {
       html += '<div class="contact-overlay__item">' +
         '<span class="contact-overlay__item-label">LinkedIn</span>' +
