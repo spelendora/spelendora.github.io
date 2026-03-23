@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valeriy Grachev — Platform Engineering Lead</title>
-<meta name="description" content="Valeriy Grachev — Platform Engineering Lead. Regulated crypto trading infrastructure: multi-region AWS, Kubernetes, Internal Developer Platform for institutional OTC, market-making & arbitrage. $170B+ annual volume. Zero major incidents.">
-<meta property="og:title" content="Valeriy Grachev — Platform Engineering Lead">
-<meta property="og:description" content="Platform Engineering Lead for regulated crypto trading infrastructure. $170B+ annual volume, 5 AWS regions, 50% cloud cost reduction. Zero major incidents in 2+ years.">
+<title>{{ meta_title }}</title>
+<meta name="description" content="{{ meta_description }}">
+<meta property="og:title" content="{{ og_title }}">
+<meta property="og:description" content="{{ og_description }}">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1369,28 +1369,14 @@ button {
       <div class="contact-overlay__label-line"></div>
     </div>
     <div class="contact-overlay__items">
+      {% for item in contact_items %}
       <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">Telegram<span class="contact-overlay__preferred">preferred</span></span>
-        <a href="https://t.me/spelendora" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">@spelendora</a>
+        <span class="contact-overlay__item-label">{{ item.label }}{% if item.preferred %}<span class="contact-overlay__preferred">preferred</span>{% endif %}</span>
+        <a href="{{ item.url }}" class="contact-overlay__item-value"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.display }}</a>
       </div>
-      <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">Line</span>
-        <a href="https://line.me/ti/p/MPvJdZcqtR" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">spelendora</a>
-      </div>
-      <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">WhatsApp</span>
-        <a href="https://wa.me/79859113856" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">+7 985 911 38 56</a>
-      </div>
-      <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">LinkedIn</span>
-        <a href="https://linkedin.com/in/spelendora" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">Valeriy Grachev</a>
-      </div>
-      <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">Email</span>
-        <a href="mailto:spelendora@gmail.com" class="contact-overlay__item-value">spelendora@gmail.com</a>
-      </div>
+      {% endfor %}
     </div>
-    <p class="contact-overlay__note">Open to platform engineering leadership roles,<br>consulting, and advisory for crypto/fintech<br>infrastructure. Remote preferred.</p>
+    <p class="contact-overlay__note">{{ contact_note }}</p>
   </div>
 </div>
 
@@ -1403,22 +1389,25 @@ button {
   <div class="hero__notifications" aria-hidden="true" id="heroNotifications"></div>
 
   <div class="hero__bar">
-    <p class="hero__tagline">Crypto Trading Infrastructure &amp; Platform Engineering</p>
+    <p class="hero__tagline">{{ tagline }}</p>
     <ul class="hero__nav">
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact" id="contactTrigger">Contact</a></li>
+      {% for link in nav_links %}
+      {% if link.id %}
+      <li><a href="{{ link.href }}" id="{{ link.id }}">{{ link.text }}</a></li>
+      {% else %}
+      <li><a href="{{ link.href }}">{{ link.text }}</a></li>
+      {% endif %}
+      {% endfor %}
     </ul>
   </div>
 
   <div class="hero__content">
     <h1 class="hero__name">
-      <span>Valeriy</span>
-      <span>Grachev</span>
+      <span>{{ name_first }}</span>
+      <span>{{ name_last }}</span>
     </h1>
     <div class="hero__rule"></div>
-    <p class="hero__descriptor">Platform Engineering Lead &middot; Bangkok &middot; Remote</p>
+    <p class="hero__descriptor">{{ descriptor }}</p>
   </div>
 
   <button class="hero__scroll" id="scrollCue" aria-label="Scroll to about section">
@@ -1432,7 +1421,7 @@ button {
   <div class="about__inner">
     <p class="about__label">About</p>
     <blockquote class="about__quote">
-      I build and lead the platform engineering function for a regulated crypto trading company &mdash; institutional OTC, market-making, and arbitrage systems processing $170B+ annually across the network. Zero major incidents in 2+ years, 50% cloud cost reduction through FinOps practices, and an internal developer platform that lets engineering teams ship independently. Previously co-founded a B2B marketplace serving 30K+ customers, and volunteered as DevOps Lead for helpingtoleave.org &mdash; Ukraine&rsquo;s largest civilian evacuation effort (92K+ people assisted).
+      {{ about }}
     </blockquote>
   </div>
 </section>
@@ -1440,26 +1429,12 @@ button {
 <!-- ======== KEY METRICS ======== -->
 <section class="metrics" aria-label="Key metrics">
   <div class="metrics__grid">
-    <div class="metrics__item" data-delay="0">
-      <p class="metrics__value">$170B+</p>
-      <p class="metrics__label">Annual Trading Volume</p>
+    {% for m in metrics %}
+    <div class="metrics__item" data-delay="{{ loop.index0 }}">
+      <p class="metrics__value">{{ m.value }}</p>
+      <p class="metrics__label">{{ m.label }}</p>
     </div>
-    <div class="metrics__item" data-delay="1">
-      <p class="metrics__value">50%</p>
-      <p class="metrics__label">Cloud Cost Reduction</p>
-    </div>
-    <div class="metrics__item" data-delay="2">
-      <p class="metrics__value">0</p>
-      <p class="metrics__label">Major Incidents in 2+ Years</p>
-    </div>
-    <div class="metrics__item" data-delay="3">
-      <p class="metrics__value">24/7</p>
-      <p class="metrics__label">Zero Maintenance Windows</p>
-    </div>
-    <div class="metrics__item" data-delay="4">
-      <p class="metrics__value">4.1M+</p>
-      <p class="metrics__label">Institutional Trades (H1 2025)</p>
-    </div>
+    {% endfor %}
   </div>
 </section>
 
@@ -1467,117 +1442,33 @@ button {
 <section class="experience" id="experience">
   <div class="experience__header">
     <p class="experience__heading">Professional Experience</p>
-    <p class="experience__count">6 positions &middot; 8+ years</p>
+    <p class="experience__count">{{ experience_count }}</p>
   </div>
 
   <ol class="exp-list">
+    {% for exp in experience %}
 
-    <!-- 01 — FineryMarkets / Finchtrade -->
-    <li class="exp-item" data-delay="0">
+    <!-- {{ "%02d"|format(loop.index) }} — {{ exp.comment }} -->
+    <li class="exp-item" data-delay="{{ loop.index0 }}">
       <div class="exp-item__top">
-        <span class="exp-item__num">I</span>
+        <span class="exp-item__num">{{ exp.num }}</span>
         <div class="exp-item__header">
-          <h3 class="exp-item__company">FinchTrade / Finery Markets</h3>
-          <p class="exp-item__role">Platform Engineering Lead</p>
+          <h3 class="exp-item__company">{{ exp.company }}</h3>
+          <p class="exp-item__role">{{ exp.role }}</p>
         </div>
         <div class="exp-item__meta">
-          <span class="exp-item__date">Nov 2021 &mdash; Present</span>
+          <span class="exp-item__date">{{ exp.date }}</span>
         </div>
       </div>
+      {% if exp.bullets %}
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Own the entire platform engineering function for FinchTrade and Finery Markets (CNBC Top 300 Fintech) &mdash; a Swiss OTC desk and regulated crypto ECN. Report to CEO; own infrastructure, security, compliance, and developer platform serving 15+ engineers across trading, market-making, and arbitrage teams. 5 AWS regions, zero maintenance windows</li>
-        <li class="exp-item__bullet">Architected multi-region AWS platform (5 regions, active-active) with domain-isolated EKS clusters enforcing blast-radius boundaries between trading core, OTC, and compliance workloads. 400+ pods, 50+ microservices, zero major incidents in 2+ years across 24/7 markets with no maintenance windows</li>
-        <li class="exp-item__bullet">Built internal developer platform reducing service onboarding from days to minutes: developers write a 15-line deploy.yaml and get complete CI/CD with IRSA, secrets management, and database provisioning for 145+ repos. Evaluated Backstage; built purpose-fit tooling (FastAPI + React) due to crypto-domain regulatory constraints</li>
-        <li class="exp-item__bullet">Achieved 50% cloud cost reduction: Karpenter with Graviton/ARM spot instances, Kubecost for per-team spend attribution, and custom Slack cost bot for real-time anomaly alerts</li>
-        <li class="exp-item__bullet">Led organization through SOC 2 Type II and ISO 27001 audits with zero critical findings. MiCA readiness for EU crypto regulation. Nitro Enclaves for custody-adjacent confidential computing, container image signing (cosign/Sigstore), Kyverno blocking non-compliant deployments</li>
+        {% for bullet in exp.bullets %}
+        <li class="exp-item__bullet">{{ bullet }}</li>
+        {% endfor %}
       </ul>
+      {% endif %}
     </li>
-
-    <!-- 02 — Helping to Leave -->
-    <li class="exp-item" data-delay="1">
-      <div class="exp-item__top">
-        <span class="exp-item__num">II</span>
-        <div class="exp-item__header">
-          <h3 class="exp-item__company">helpingtoleave.org</h3>
-          <p class="exp-item__role">Volunteer DevOps Lead (Part-Time)</p>
-        </div>
-        <div class="exp-item__meta">
-          <span class="exp-item__date">Feb 2022 &mdash; Aug 2023</span>
-        </div>
-      </div>
-      <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built and operated infrastructure for one of Ukraine&rsquo;s largest civilian evacuation organizations &mdash; 92K+ people assisted, 16K+ fully guided evacuations from frontline and occupied territories. Featured by Harvard Ukrainian Research Institute</li>
-        <li class="exp-item__bullet">Led team of 5 DevOps engineers and coordinated with 30+ tech specialists. Core platform: Telegram bot network serving 300+ volunteers coordinating real-time evacuations across active war zones</li>
-        <li class="exp-item__bullet">AWS/EKS/CDK infrastructure with full observability stack. Mitigated state-level DDoS attacks using AWS Shield and WAF to keep evacuation services online during active military operations</li>
-      </ul>
-    </li>
-
-    <!-- 03 — AIDU (SignedUp.me) -->
-    <li class="exp-item" data-delay="2">
-      <div class="exp-item__top">
-        <span class="exp-item__num">III</span>
-        <div class="exp-item__header">
-          <h3 class="exp-item__company">AIDU (aidu.me)</h3>
-          <p class="exp-item__role">Co-Founder &middot; Head of Product & Engineering</p>
-        </div>
-        <div class="exp-item__meta">
-          <span class="exp-item__date">Oct 2020 &mdash; Nov 2021</span>
-        </div>
-      </div>
-      <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Co-founded B2B marketplace platform connecting retail stores with service contractors in Kazakhstan. Built from zero to 30K+ customers with high retention rate and 1.3K+ active contractors across 254 service types</li>
-        <li class="exp-item__bullet">Owned all technical and product decisions: architecture, infrastructure (Kubernetes on GCP), hiring, delivery, and contractor payments. Led team of 10</li>
-        <li class="exp-item__bullet">Integrated with major retail chains: Alser, Mechta, Leroy Merlin, Sulpak, DNS, Technograd &mdash; enabling in-store service sales at checkout</li>
-      </ul>
-    </li>
-
-    <!-- 04 — EdTech Platform (IIDF) -->
-    <li class="exp-item" data-delay="3">
-      <div class="exp-item__top">
-        <span class="exp-item__num">IV</span>
-        <div class="exp-item__header">
-          <h3 class="exp-item__company">EdTech Platform (IIDF Portfolio)</h3>
-          <p class="exp-item__role">Head of Product & Engineering (Contract)</p>
-        </div>
-        <div class="exp-item__meta">
-          <span class="exp-item__date">Oct 2018 &mdash; Nov 2021</span>
-        </div>
-      </div>
-      <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built enterprise education platform for Russia&rsquo;s largest startup accelerator (IIDF &mdash; 400+ portfolio companies, 6B RUB fund). 30K+ students completed programs through the platform. Led team of 7. Part-time contract alongside Fevlake and AIDU roles</li>
-      </ul>
-    </li>
-
-    <!-- 05 — Fevlake.com -->
-    <li class="exp-item" data-delay="4">
-      <div class="exp-item__top">
-        <span class="exp-item__num">V</span>
-        <div class="exp-item__header">
-          <h3 class="exp-item__company">Fevlake.com</h3>
-          <p class="exp-item__role">DevOps Engineer</p>
-        </div>
-        <div class="exp-item__meta">
-          <span class="exp-item__date">Oct 2018 &mdash; Oct 2020</span>
-        </div>
-      </div>
-      <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built Kubernetes-based infrastructure from scratch for a DevOps consulting firm. Designed and executed monolith-to-microservices migration</li>
-      </ul>
-    </li>
-
-    <!-- 06 — TCEH.com -->
-    <li class="exp-item" data-delay="5">
-      <div class="exp-item__top">
-        <span class="exp-item__num">VI</span>
-        <div class="exp-item__header">
-          <h3 class="exp-item__company">TCEH.com</h3>
-          <p class="exp-item__role">Linux Administrator</p>
-        </div>
-        <div class="exp-item__meta">
-          <span class="exp-item__date">Nov 2017 &mdash; Sep 2018</span>
-        </div>
-      </div>
-    </li>
+    {% endfor %}
 
   </ol>
 </section>
@@ -1586,139 +1477,31 @@ button {
 <section class="projects" id="projects">
   <div class="projects__header">
     <p class="projects__heading">Selected Projects</p>
-    <p class="projects__count">6 projects &middot; FinchTrade / Finery Technologies</p>
+    <p class="projects__count">{{ projects_count }}</p>
   </div>
 
   <ul class="project-list">
+    {% for proj in projects %}
 
-    <li class="project-card" data-delay="0">
+    <li class="project-card" data-delay="{{ proj.data_delay }}">
       <div class="project-card__top">
-        <span class="project-card__num">01</span>
-        <span class="project-card__tag">Platform Architecture</span>
+        <span class="project-card__num">{{ proj.num }}</span>
+        <span class="project-card__tag">{{ proj.tag }}</span>
       </div>
-      <h3 class="project-card__name">Multi-Region Fintech Platform</h3>
-      <p class="project-card__desc">Domain-isolated EKS clusters (trading core, OTC, market guard) instead of namespaces &mdash; hard blast-radius boundaries for crypto trading. Infrastructure as Software approach: Pulumi (Python) enabling unit-tested, type-safe infrastructure. Karpenter with Graviton/ARM and spot instances for sub-60s node provisioning during market volatility spikes.</p>
+      <h3 class="project-card__name">{{ proj.name }}</h3>
+      <p class="project-card__desc">{{ proj.description }}</p>
       <div class="project-card__metrics">
-        <span class="project-card__metric">$170B+ Annual Volume</span>
-        <span class="project-card__metric">5 AWS Regions</span>
-        <span class="project-card__metric">Active-Active</span>
+        {% for metric in proj.metrics %}
+        <span class="project-card__metric">{{ metric }}</span>
+        {% endfor %}
       </div>
       <div class="project-card__tech">
-        <span class="project-card__tech-tag">Pulumi</span>
-        <span class="project-card__tech-tag">CDK</span>
-        <span class="project-card__tech-tag">EKS</span>
-        <span class="project-card__tech-tag">Karpenter</span>
-        <span class="project-card__tech-tag">Graviton</span>
-        <span class="project-card__tech-tag">Aurora</span>
-        <span class="project-card__tech-tag">CloudNativePG</span>
+        {% for tech in proj.tech %}
+        <span class="project-card__tech-tag">{{ tech }}</span>
+        {% endfor %}
       </div>
     </li>
-
-    <li class="project-card" data-delay="1">
-      <div class="project-card__top">
-        <span class="project-card__num">02</span>
-        <span class="project-card__tag">Platform Engineering</span>
-      </div>
-      <h3 class="project-card__name">Internal Developer Platform</h3>
-      <p class="project-card__desc">Platform-as-a-Product approach: evaluated Backstage, built purpose-fit tooling due to crypto-domain regulatory constraints. ft-toolbox (FastAPI + React) with Claude API for AI-augmented operations &mdash; automated Jira digests, cost anomaly narration, Grafana audit that caught disabled SSL on 12/14 Postgres datasources. Golden paths for developer self-service.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">6+ Internal Tools</span>
-        <span class="project-card__metric">Backstage Evaluated</span>
-        <span class="project-card__metric">Claude API Integration</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Python</span>
-        <span class="project-card__tech-tag">FastAPI</span>
-        <span class="project-card__tech-tag">React</span>
-        <span class="project-card__tech-tag">Claude API</span>
-        <span class="project-card__tech-tag">Slack Bolt</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="3">
-      <div class="project-card__top">
-        <span class="project-card__num">03</span>
-        <span class="project-card__tag">FinOps</span>
-      </div>
-      <h3 class="project-card__name">FinOps &amp; Cost Engineering</h3>
-      <p class="project-card__desc">Achieved 50% cloud cost reduction across 5 AWS regions. Karpenter with Graviton/ARM and spot instances for compute, Kubecost for per-team spend attribution and anomaly detection. Built custom Slack cost bot &mdash; real-time alerts on spend spikes, weekly team-level reports, untagged resource tracking.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">50% Cost Reduction</span>
-        <span class="project-card__metric">Per-Team Attribution</span>
-        <span class="project-card__metric">Real-Time Alerts</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Kubecost</span>
-        <span class="project-card__tech-tag">Karpenter</span>
-        <span class="project-card__tech-tag">Graviton</span>
-        <span class="project-card__tech-tag">Slack Bolt</span>
-        <span class="project-card__tech-tag">Python</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="4">
-      <div class="project-card__top">
-        <span class="project-card__num">04</span>
-        <span class="project-card__tag">Observability</span>
-      </div>
-      <h3 class="project-card__name">Observability &amp; Incident Intelligence</h3>
-      <p class="project-card__desc">VictoriaMetrics over Thanos &mdash; simpler ops, better compression for long-term retention. OTEL dual pipeline: metrics via Prometheus Remote Write, traces via Tempo. Robusta for AI-powered alert enrichment and auto-remediation playbooks. Every alert links to a runbook &mdash; contributing to zero major incidents in 2+ years.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">0 Major Incidents</span>
-        <span class="project-card__metric">AI Alert Enrichment</span>
-        <span class="project-card__metric">Dual OTEL Pipeline</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">VictoriaMetrics</span>
-        <span class="project-card__tech-tag">OpenTelemetry</span>
-        <span class="project-card__tech-tag">Tempo</span>
-        <span class="project-card__tech-tag">Loki</span>
-        <span class="project-card__tech-tag">Robusta</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="5">
-      <div class="project-card__top">
-        <span class="project-card__num">05</span>
-        <span class="project-card__tag">Service Mesh</span>
-      </div>
-      <h3 class="project-card__name">Istio Service Mesh Implementation</h3>
-      <p class="project-card__desc">Istio over Linkerd &mdash; more expressive AuthorizationPolicy for crypto compliance rules like &ldquo;only compliance service calls KYT endpoint.&rdquo; Validated with 17-service staging environment replicating production topology. Now rolling out to production: PERMISSIVE &rarr; STRICT mTLS per namespace.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">17-Service Demo</span>
-        <span class="project-card__metric">PERMISSIVE &rarr; STRICT</span>
-        <span class="project-card__metric">Crypto Compliance Policies</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Istio</span>
-        <span class="project-card__tech-tag">OPA</span>
-        <span class="project-card__tech-tag">Envoy</span>
-        <span class="project-card__tech-tag">JWT Auth</span>
-        <span class="project-card__tech-tag">FastAPI</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="6">
-      <div class="project-card__top">
-        <span class="project-card__num">06</span>
-        <span class="project-card__tag">Security &amp; Compliance</span>
-      </div>
-      <h3 class="project-card__name">Security &amp; Compliance Engineering</h3>
-      <p class="project-card__desc">Led organization through SOC 2 Type II and ISO 27001 audits with zero critical findings. SOPS over Vault &mdash; encrypted secrets in git, auditable, no extra infra at our scale. Container image signing (cosign/Sigstore), SBOM generation via Trivy, Nitro Enclaves for custody-adjacent confidential computing. MiCA readiness for EU crypto regulation deadline July 2026.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">SOC 2 Type II</span>
-        <span class="project-card__metric">ISO 27001</span>
-        <span class="project-card__metric">MiCA Ready</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">SOPS</span>
-        <span class="project-card__tech-tag">Kyverno</span>
-        <span class="project-card__tech-tag">Trivy</span>
-        <span class="project-card__tech-tag">cosign/Sigstore</span>
-        <span class="project-card__tech-tag">Nitro Enclaves</span>
-        <span class="project-card__tech-tag">Prowler</span>
-      </div>
-    </li>
+    {% endfor %}
 
   </ul>
 </section>
@@ -1730,121 +1513,17 @@ button {
   </div>
 
   <div class="skills__grid">
+    {% for skill in skills %}
 
-    <div class="skill-group" data-delay="0">
-      <h3 class="skill-group__title">Cloud &amp; Compute</h3>
+    <div class="skill-group" data-delay="{{ loop.index0 }}">
+      <h3 class="skill-group__title">{{ skill.title }}</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">EKS</span>
-        <span class="skill-tag">RDS Aurora</span>
-        <span class="skill-tag">Transit Gateway</span>
-        <span class="skill-tag">Graviton/ARM</span>
-        <span class="skill-tag">AWS Shield/WAF</span>
+        {% for tag in skill.tags %}
+        <span class="skill-tag">{{ tag }}</span>
+        {% endfor %}
       </div>
     </div>
-
-    <div class="skill-group" data-delay="1">
-      <h3 class="skill-group__title">Infrastructure as Software</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Pulumi</span>
-        <span class="skill-tag">Terraform</span>
-        <span class="skill-tag">AWS CDK</span>
-        <span class="skill-tag">Drift Detection</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="2">
-      <h3 class="skill-group__title">Kubernetes Platform</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Karpenter</span>
-        <span class="skill-tag">ArgoCD</span>
-        <span class="skill-tag">Istio</span>
-        <span class="skill-tag">Velero</span>
-        <span class="skill-tag">Kyverno</span>
-        <span class="skill-tag">CloudNativePG</span>
-        <span class="skill-tag">Pod Identity</span>
-        <span class="skill-tag">Stakater Reloader</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="3">
-      <h3 class="skill-group__title">CI/CD</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">GitLab CI</span>
-        <span class="skill-tag">Dynamic Pipeline Generation</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="4">
-      <h3 class="skill-group__title">Observability &amp; FinOps</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">VictoriaMetrics</span>
-        <span class="skill-tag">Loki</span>
-        <span class="skill-tag">Tempo</span>
-        <span class="skill-tag">OpenTelemetry</span>
-        <span class="skill-tag">Robusta</span>
-        <span class="skill-tag">Kubecost</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="5">
-      <h3 class="skill-group__title">Security &amp; Identity</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Trivy</span>
-        <span class="skill-tag">cosign/Sigstore</span>
-        <span class="skill-tag">Prowler</span>
-        <span class="skill-tag">Nitro Enclaves</span>
-        <span class="skill-tag">Dex/OIDC Federation</span>
-        <span class="skill-tag">OAuth2 Proxy</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="6">
-      <h3 class="skill-group__title">Networking &amp; Messaging</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Traefik</span>
-        <span class="skill-tag">Headscale VPN</span>
-        <span class="skill-tag">NATS</span>
-        <span class="skill-tag">RabbitMQ</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="7">
-      <h3 class="skill-group__title">Data &amp; Storage</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">CloudNativePG</span>
-        <span class="skill-tag">Barman/PITR</span>
-        <span class="skill-tag">PgBouncer</span>
-        <span class="skill-tag">Elasticsearch</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="8">
-      <h3 class="skill-group__title">Crypto &amp; Fintech Domain</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">OTC Desks</span>
-        <span class="skill-tag">Market-Making</span>
-        <span class="skill-tag">Arbitrage Systems</span>
-        <span class="skill-tag">AML/KYC Compliance</span>
-        <span class="skill-tag">MiCA</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="9">
-      <h3 class="skill-group__title">AI &amp; Automation</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Claude API</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="10">
-      <h3 class="skill-group__title">Languages</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Go</span>
-        <span class="skill-tag">Bash</span>
-      </div>
-    </div>
+    {% endfor %}
 
   </div>
 </section>
@@ -1856,13 +1535,15 @@ button {
   </div>
 
   <ul class="certs__list">
-    <li class="cert-item" data-delay="0">
-      <div class="cert-item__icon">K</div>
+    {% for cert in certifications %}
+    <li class="cert-item" data-delay="{{ loop.index0 }}">
+      <div class="cert-item__icon">{{ cert.icon }}</div>
       <div class="cert-item__body">
-        <p class="cert-item__name">Certified Kubernetes Administrator (CKA)</p>
-        <p class="cert-item__issuer">CNCF &mdash; Cloud Native Computing Foundation &mdash; 2023</p>
+        <p class="cert-item__name">{{ cert.name }}</p>
+        <p class="cert-item__issuer">{{ cert.issuer }}</p>
       </div>
     </li>
+    {% endfor %}
   </ul>
 
 </section>
@@ -1872,16 +1553,17 @@ button {
   <div class="footer__left">
     <button class="footer__contact-trigger" id="footerContactTrigger">Get in touch &rarr;</button>
     <div class="footer__links">
-      <a href="https://t.me/spelendora" class="footer__link" target="_blank" rel="noopener noreferrer">Telegram</a>
-      <a href="https://linkedin.com/in/spelendora" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {% for link in footer_links %}
+      <a href="{{ link.url }}" class="footer__link" target="_blank" rel="noopener noreferrer">{{ link.text }}</a>
+      {% endfor %}
     </div>
   </div>
   <div class="footer__right">
-    <a href="/" class="footer__home">
+    <a href="{{ footer_home_url }}" class="footer__home">
       <span class="footer__home-arrow"></span>
-      Back to Home
+      {{ footer_home_text }}
     </a>
-    <p class="footer__copy">&copy; 2026 Valeriy Grachev</p>
+    <p class="footer__copy">{{ footer_copy }}</p>
   </div>
 </footer>
 
@@ -1990,22 +1672,7 @@ button {
 
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var notifications = [
-      { type: 'green', text: 'argocd sync core-otc \u2192 Healthy (3/3 pods)' },
-      { type: 'green', text: 'gitlab pipeline #12847 \u2014 all stages passed' },
-      { type: 'green', text: 'kyverno: 0 policy violations across 5 clusters' },
-      { type: 'green', text: 'velero backup prod-apne1 \u2014 completed 2m14s' },
-      { type: 'green', text: 'trivy scan: 0 critical, 0 high vulns' },
-      { type: 'green', text: 'kubecost: cloud spend -3.2% vs last week' },
-      { type: 'amber', text: 'karpenter: spot interruption eu-west-1 \u2014 node replaced 47s' },
-      { type: 'green', text: 'cnpg cluster trading-db: 3/3 replicas healthy' },
-      { type: 'green', text: 'istio mTLS: 100% strict across all namespaces' },
-      { type: 'green', text: 'pulumi drift-detect: 0 changes detected' },
-      { type: 'amber', text: 'cert-manager: wildcard renewal in 12d \u2014 queued' },
-      { type: 'green', text: 'robusta: alert enrichment \u2014 0 active incidents' },
-      { type: 'green', text: 'victoria-metrics: 99.999% write availability' },
-      { type: 'green', text: 'cosign: all 52 images verified \u2014 signatures valid' }
-    ];
+    var notifications = {{ notifications_json }};
 
     var currentIndex = 0;
     var activeCards = [];

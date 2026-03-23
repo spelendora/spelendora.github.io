@@ -6,4 +6,5 @@ porkbun.txt
 
 cv-pdf/
 generate-cv-pdf.py
-cv-data.json
+screenshot-audit.py
+screenshots/
