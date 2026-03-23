@@ -1407,7 +1407,7 @@ button {
       <span>Grachev</span>
     </h1>
     <div class="hero__rule"></div>
-    <p class="hero__descriptor">Platform Engineering Lead &middot; Open to Opportunities &middot; Remote</p>
+    <p class="hero__descriptor">Platform Engineering Lead &middot; Remote</p>
   </div>
 
   <button class="hero__scroll" id="scrollCue" aria-label="Scroll to about section">
@@ -1954,7 +1954,7 @@ button {
     if (prefersReducedMotion) {
       for (var i = 0; i < 3; i++) {
         var card = createCardElement(notifications[i]);
-        card.style.opacity = '0.15';
+        card.style.opacity = '0.075';
         card.style.transform = 'translateX(0)';
         card.style.top = (i * (CARD_HEIGHT + CARD_GAP)) + 'px';
         container.appendChild(card);
@@ -1981,7 +1981,7 @@ button {
 
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
-          card.style.opacity = '0.15';
+          card.style.opacity = '0.075';
           card.style.transform = 'translateX(0)';
         });
       });
