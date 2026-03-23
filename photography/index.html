@@ -1138,14 +1138,6 @@ body::after {
         '</div>';
     }
 
-    /* Email */
-    if (p.email) {
-      html += '<div class="contact-overlay__item">' +
-        '<span class="contact-overlay__item-label">Email</span>' +
-        '<a href="mailto:' + esc(p.email) + '" class="contact-overlay__item-value">' + esc(p.email) + '</a>' +
-        '</div>';
-    }
-
     /* Line */
     if (p.socials && p.socials.line) {
       html += '<div class="contact-overlay__item">' +
@@ -1162,13 +1154,14 @@ body::after {
         '</div>';
     }
 
-    /* LinkedIn */
-    if (p.socials && p.socials.linkedin) {
+    /* Email */
+    if (p.email) {
       html += '<div class="contact-overlay__item">' +
-        '<span class="contact-overlay__item-label">LinkedIn</span>' +
-        '<a href="' + esc(p.socials.linkedin) + '" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">Valeriy Grachev</a>' +
+        '<span class="contact-overlay__item-label">Email</span>' +
+        '<a href="mailto:' + esc(p.email) + '" class="contact-overlay__item-value">' + esc(p.email) + '</a>' +
         '</div>';
     }
+
 
     container.innerHTML = html;
   }
