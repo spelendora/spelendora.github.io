@@ -1,0 +1,164 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV — Valeriy Grachev (v2)
+% Source: data verified against pulumi-eks, ft-toolbox, generate-ci, argo* repos
+% Template: https://github.com/posquit0/Awesome-CV
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{awesome-cv}
+
+\geometry{left=1.2cm, top=.7cm, right=1.2cm, bottom=1.4cm, footskip=.4cm}
+
+\definecolor{awesome}{HTML}{0D4F4A}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Valeriy}{Grachev}
+\position{Head of Platform Engineering}
+\address{Bangkok, Thailand{\enskip\cdotp\enskip}Remote (Open to US relocation)}
+
+\telegram{spelendora}
+\email{spelendora@gmail.com}
+\homepage{spelendora.com/devops}
+\linkedin{spelendora}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {}
+  {Valeriy Grachev~~~·~~~Head of Platform Engineering}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+% SUMMARY
+%-------------------------------------------------------------------------------
+\cvsection{About}
+
+\begin{cvparagraph}
+Head of Platform Engineering at \textbf{Finery Tech Holding} --- the parent company behind \href{https://finchtrade.com}{FinchTrade} (Swiss institutional crypto OTC desk) and \href{https://finerymarkets.com}{Finery Markets} (non-custodial crypto ECN; \href{https://www.cnbc.com/2025/06/19/the-worlds-top-fintech-companies-2025.html}{CNBC World's Top 300 Fintech 2025}, Digital Assets). The shared platform has cleared \textbf{\$200B+ in cumulative client orders} and \textbf{4.1M+ institutional trades in H1 2025} (3.4× YoY). Lead a 2-person platform team for a 40-engineer org, reporting to the CEO with technical responsibility for infrastructure, security, compliance (SOC 2 Type II, ISO 27001/27701, MiCA-ready, DORA-aligned), and the internal developer platform. \textbf{Run infrastructure as a product}: zero major platform outages in 2+ years, 50\% cloud cost reduction through FinOps, and \textbf{DORA Elite delivery} (lead time under 6 min, MTTR under 4 min) sustained by a 2-person platform team.
+\end{cvparagraph}
+
+%-------------------------------------------------------------------------------
+% WORK EXPERIENCE
+%-------------------------------------------------------------------------------
+\cvsection{Work Experience}
+
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Head of Platform Engineering}
+    {Finery Tech Holding (parent of \href{https://finchtrade.com}{FinchTrade} \& \href{https://finerymarkets.com}{Finery Markets})}
+    {Bangkok · Remote}
+    {Nov. 2021 - Present}
+    {
+      \begin{cvitems}
+        \item {Own platform engineering for a \textbf{~40-engineer fintech group} comprising a Swiss OTC desk and a non-custodial crypto ECN. Lead a 2-person platform team, report to CEO, and partner with product engineering on infrastructure, security, compliance, and the internal developer platform --- treating \textbf{infrastructure as a product} with its own roadmap and self-service contracts.}
+        \item {Delivered \textbf{zero major platform outages in 2+ years} across 24/7 crypto markets on a 5-region active-active AWS/EKS footprint (\textbf{800+ pods, 100+ microservices}). Karpenter autoscaling, Kyverno-enforced RBAC, codified SEV1--SEV4 taxonomy with 15-min response SLA and per-component RTO/RPO; on-call paging provisioned as code via a custom Pulumi provider, with incident.io AI Agent piloted for triage summarization.}
+        \item {Built a declarative onboarding platform where a single per-service manifest generates CI pipelines, pushes Helm values to GitOps, and rolls out via ArgoCD ApplicationSets across environments. Includes ephemeral preview environments per branch with auto-stop, prod-branch gating, and per-service IAM/secrets wiring. Drives \textbf{DORA Elite delivery} for the engineering org with a 2-person platform team. Evaluated Backstage and Port; built in-house due to crypto regulatory constraints.}
+        \item {Cut cloud spend \textbf{50\%} through FinOps: Karpenter consolidation, spot in non-prod, Kubecost for per-team attribution, and a custom anomaly-alert bot that catches 5--10× regressions before they compound (e.g., a Velero snapshot leak that grew 64× in 7 months). Also drove a CI build-speed program (remote BuildKit + persistent cache) reducing typical build time from \textbf{3--4 minutes to 20--30 seconds} on warm cache.}
+        \item {Drove the org through \textbf{SOC 2 Type II and ISO 27001/27701 audits} as technical owner. Built MiCA-ready, DORA-aligned controls: signing isolation via AWS Nitro Enclaves, MPC custody integration with Fireblocks and Inabit, and an internal IAM access-governance platform handling periodic access-review snapshots, immutable audit log, and evidence export for auditors.}
+        \item {Led forensic incident response on a multi-account account-takeover campaign: cross-correlated session telemetry, WebSocket headers, and VPC flow logs to attribute compromised accounts to a single actor and surface a VPN split-tunnel IP leak. \textbf{Platform controls blocked 12 of 13 exfiltration attempts}; delivered attacker profile and remediation backlog.}
+        \item {\textit{Build alongside lead:} also primary author of the authentication gateway service (Cognito + Lambda authorizers, ingress-switching, swagger environments) when platform issues require code-level ownership.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Volunteer DevOps Lead (Part-Time)}
+    {\href{https://helpingtoleave.org}{helpingtoleave.org}}
+    {Remote}
+    {Feb. 2022 - Aug. 2023}
+    {
+      \begin{cvitems}
+        \item {Built and operated infrastructure for one of Ukraine's largest civilian evacuation organizations --- \textbf{92K+ people assisted}, \textbf{16K+ fully guided evacuations} from frontline and occupied territories. Featured by \href{https://huri.harvard.edu/news/uchitelka-rufina-bazlova-tetiana-kulykivska-russias-war-against-ukraine-bilingual}{Harvard Ukrainian Research Institute}.}
+        \item {Led team of 5 DevOps engineers and coordinated with 30+ tech specialists. Core platform: Telegram bot network serving 300+ volunteers coordinating real-time evacuations across active war zones.}
+        \item {Mitigated state-level DDoS attacks via AWS Shield and WAF to keep evacuation services online during active military operations.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Co-Founder · Head of Product \& Engineering}
+    {\href{https://terminal.aidu.me/}{AIDU (terminal.aidu.me)}}
+    {Remote}
+    {Oct. 2020 - Nov. 2021}
+    {
+      \begin{cvitems}
+        \item {Co-founded B2B marketplace connecting retail stores with service contractors in Kazakhstan. Built from zero to \textbf{30K+ customers} and \textbf{1.3K+ active contractors}.}
+        \item {Owned architecture, GCP/Kubernetes infrastructure, hiring, delivery, and contractor payments end-to-end. Led team of 10.}
+        \item {Integrated with major retail chains: Alser, Mechta, Leroy Merlin, Sulpak, DNS, Technograd --- enabling in-store service sales at checkout.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Head of Product \& Engineering (Concurrent Contract)}
+    {EdTech Platform (\href{https://iidf.ru}{IIDF Portfolio})}
+    {Remote}
+    {Oct. 2018 - Nov. 2021}
+    {
+      \begin{cvitems}
+        \item {Built enterprise education platform for Russia's largest startup accelerator (IIDF --- 400+ portfolio companies, 6B RUB fund). 30K+ students completed programs through the platform. Led team of 7.}
+        \item {\textit{Concurrent part-time engagement alongside Fevlake (2018--2020) and AIDU (2020--2021).}}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {DevOps Engineer}
+    {\href{https://fevlake.com}{Fevlake.com}}
+    {Moscow}
+    {Oct. 2018 - Oct. 2020}
+    {
+      \begin{cvitems}
+        \item {DevOps consultancy delivering Kubernetes platforms and CI/CD for client engagements across fintech, e-commerce, and SaaS. Led monolith-to-microservices migrations and on-prem-to-cloud transitions.}
+      \end{cvitems}
+    }
+
+\end{cventries}
+
+%-------------------------------------------------------------------------------
+% SKILLS
+%-------------------------------------------------------------------------------
+\cvsection{Technical Expertise}
+
+\begin{cvskills}
+  \cvskill{Leadership \& Practice}{Platform-as-a-Product, Engineering Leadership, Hiring \& Team Building, Cross-Functional Leadership, Vendor Management, Site Reliability Engineering (SRE), FinOps, DevSecOps, Compliance Engineering, Internal Developer Platforms (IDP), GitOps, Incident Command (SEV taxonomy)}
+  \cvskill{AI-Augmented Ops}{Production MCP (Model Context Protocol) servers, Claude API for Jira summarization \& knowledge-base assistant, AI-enriched alert routing via Robusta, incident.io AI Agent (triage pilot)}
+  \cvskill{Crypto \& Fintech Domain}{Trading Infrastructure (OTC desks, non-custodial ECN, market-making \& arbitrage support), MPC Custody (Fireblocks, Inabit), AWS Nitro Enclaves for signing isolation, AML/KYC Pipelines (Sumsub), FATF Travel Rule}
+  \cvskill{Compliance \& GRC}{SOC 2 Type II, ISO 27001/27701, MiCA-ready (ahead of July 2026 enforcement), DORA-aligned (ICT vendor controls), GDPR, FINMA SRO (VQF), automated IAM audit, immutable audit log, evidence-export automation}
+  \cvskill{Cloud \& Kubernetes Platform}{AWS multi-region/multi-account (EKS, Aurora, Transit Gateway, Shield/WAF, CloudFront, IRSA, Pod Identity), Karpenter, ArgoCD ApplicationSets, Istio Ambient, Kyverno, External Secrets Operator, Velero, CloudNativePG}
+  \cvskill{Infrastructure as Code}{Pulumi (Python, custom providers via gen-sdk), unit-tested with mocks, drift detection with Slack alerts; Terraform (prior)}
+  \cvskill{Observability \& Reliability}{OpenTelemetry, VictoriaMetrics (Prometheus-compatible), Loki, Tempo, Grafana, Robusta, Fluent Bit; SEV1--SEV4 taxonomy with 15-min response SLA, per-component RTO/RPO}
+  \cvskill{Developer Platform \& CI/CD}{Self-service service-onboarding manifests, custom GitLab CI pipeline generator (17K LoC tests, 85\% coverage gate), ArgoCD GitOps, ephemeral preview environments per branch, BuildKit caching}
+  \cvskill{FinOps}{Kubecost (FOCUS-aligned), per-team attribution, Karpenter consolidation \& spot strategy, anomaly-alert Slack bot, Aurora-backed cost data warehouse}
+  \cvskill{Security \& Identity}{Static analysis (Semgrep, Bandit, Gitleaks, Trivy SBOM/CVE), Kyverno admission, AWS Secrets Manager + External Secrets Operator, Dex/OIDC federation, incident.io paging-as-code}
+  \cvskill{Networking \& Data}{Traefik ingress, Transit Gateway peering, Tailscale/Headscale operator VPN, NATS, RabbitMQ, PostgreSQL (CloudNativePG \& operators), Redis, S3 + CloudFront}
+  \cvskill{Programming}{Python (primary), Bash, Go (reading)}
+  \cvskill{Spoken Languages}{English (Professional), Russian (Native), Japanese (A2/B1)}
+\end{cvskills}
+
+%-------------------------------------------------------------------------------
+% CERTIFICATIONS
+%-------------------------------------------------------------------------------
+\cvsection{Certifications}
+
+\begin{cvhonors}
+  \cvhonor
+    {Certified Kubernetes Administrator (CKA)}
+    {CNCF --- Cloud Native Computing Foundation}
+    {}
+    {2023}
+\end{cvhonors}
+
+%-------------------------------------------------------------------------------
+\end{document}

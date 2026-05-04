@@ -1,0 +1,213 @@
+%%%%%%%%%%%%%%%%%
+% CV for Valeriy Grachev — Platform Engineering Lead
+% Built on AltaCV (https://github.com/liantze/AltaCV)
+%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+% Page layout — tight margins to fit on 1-2 pages
+\geometry{left=1.0cm,right=1.0cm,top=1.2cm,bottom=1.2cm,columnsep=0.9cm}
+
+\usepackage{paracol}
+
+% Fonts: tectonic uses XeTeX, so \iftutex is true
+\iftutex
+  \setmainfont{Helvetica Neue}
+  \setsansfont{Helvetica Neue}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Color palette — deep teal accent matching the personal site
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DeepTeal}{HTML}{0d4f4a}
+\definecolor{DarkTeal}{HTML}{083633}
+\definecolor{AccentGold}{HTML}{c9a961}
+\colorlet{name}{DarkTeal}
+\colorlet{tagline}{DeepTeal}
+\colorlet{heading}{DarkTeal}
+\colorlet{headingrule}{DeepTeal}
+\colorlet{subheading}{DeepTeal}
+\colorlet{accent}{DeepTeal}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{SlateGrey}
+
+% Tighten fonts a bit
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\Large\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+
+\begin{document}
+\name{Valeriy Grachev}
+\tagline{Platform Engineering Lead --- Regulated Crypto / Fintech Infrastructure}
+
+\personalinfo{%
+  \email{spelendora@gmail.com}
+  \location{Bangkok \textperiodcentered{} Remote}
+  \homepage{spelendora.com/devops}
+  \linkedin{spelendora}
+  \printinfo{\faTelegram}{@spelendora}[https://t.me/spelendora]
+}
+
+\makecvheader
+
+% Slightly smaller bullets so dense content fits
+\AtBeginEnvironment{itemize}{\small}
+
+%% Main column 65%, sidebar 35%
+\columnratio{0.65}
+
+\begin{paracol}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAIN COLUMN (LEFT)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Profile}
+
+\small Platform Engineering Lead for \textbf{FinchTrade / Finery Markets} (CNBC Top 300 Fintech) --- a Swiss OTC desk and regulated crypto ECN. Own infrastructure, security, compliance (SOC 2 Type II, ISO 27001, MiCA), and the internal developer platform across 5 AWS regions. Direct report to CEO. \textbf{USD 170B+ annual trading volume}, \textbf{50\% cloud cost reduction}, \textbf{zero major incidents in 2+ years} across 24/7 markets.
+
+\cvsection{Experience}
+
+\cvevent{Platform Engineering Lead}{FinchTrade / Finery Markets}{Nov 2021 -- Present}{Bangkok \textperiodcentered{} Remote}
+\begin{itemize}
+\item Own the entire platform engineering function for a Swiss OTC desk and regulated crypto ECN. Report to CEO; lead infrastructure, security, compliance, and developer platform serving 15+ engineers across trading, market-making, and arbitrage teams
+\item Architected multi-region AWS platform (5 regions, active-active) with domain-isolated EKS clusters enforcing blast-radius boundaries between trading core, OTC, and compliance workloads. 400+ pods, 50+ microservices, 24/7 markets with no maintenance windows
+\item Built internal developer platform reducing service onboarding from days to minutes: developers write a 15-line \texttt{deploy.yaml} and get complete CI/CD with IRSA, secrets management, and database provisioning for 145+ repos
+\item Achieved 50\% cloud cost reduction: Karpenter with Graviton/ARM spot instances, Kubecost for per-team spend attribution, and a custom Slack cost bot for real-time anomaly alerts
+\item Led organization through SOC 2 Type II and ISO 27001 audits with zero critical findings. MiCA readiness for EU crypto regulation. Nitro Enclaves for custody-adjacent confidential computing, image signing (cosign/Sigstore), Kyverno blocking non-compliant deployments
+\end{itemize}
+
+\divider
+
+\cvevent{Volunteer DevOps Lead (Part-Time)}{helpingtoleave.org}{Feb 2022 -- Aug 2023}{Remote}
+\begin{itemize}
+\item Built and operated infrastructure for one of Ukraine's largest civilian evacuation organizations --- \textbf{92K+ people assisted}, \textbf{16K+ fully guided evacuations} from frontline and occupied territories. Featured by Harvard Ukrainian Research Institute
+\item Led team of 5 DevOps engineers and coordinated with 30+ tech specialists. Core platform: Telegram bot network serving 300+ volunteers coordinating real-time evacuations across active war zones
+\item AWS / EKS / CDK infrastructure with full observability stack. Mitigated state-level DDoS attacks via AWS Shield and WAF to keep services online during active military operations
+\end{itemize}
+
+\divider
+
+\cvevent{Co-Founder \textperiodcentered{} Head of Product \& Engineering}{AIDU (aidu.me)}{Oct 2020 -- Nov 2021}{Almaty, Kazakhstan}
+\begin{itemize}
+\item Co-founded B2B marketplace connecting retail stores with service contractors in Kazakhstan. Built from zero to 30K+ customers and 1.3K+ active contractors across 254 service types
+\item Owned all technical and product decisions: architecture, infrastructure (Kubernetes on GCP), hiring, delivery, contractor payments. Led team of 10
+\item Integrated with major retail chains: Alser, Mechta, Leroy Merlin, Sulpak, DNS, Technograd --- enabling in-store service sales at checkout
+\end{itemize}
+
+\divider
+
+\cvevent{Head of Product \& Engineering (Contract)}{EdTech Platform (IIDF Portfolio)}{Oct 2018 -- Nov 2021}{Remote}
+\begin{itemize}
+\item Built enterprise education platform for Russia's largest startup accelerator (IIDF --- 400+ portfolio companies, 6B RUB fund). 30K+ students completed programs through the platform. Led team of 7
+\end{itemize}
+
+\divider
+
+\cvevent{DevOps Engineer}{Fevlake.com}{Oct 2018 -- Oct 2020}{Moscow}
+\begin{itemize}
+\item Built Kubernetes-based infrastructure from scratch for a DevOps consulting firm. Designed and executed monolith-to-microservices migration
+\end{itemize}
+
+\divider
+
+\cvevent{Linux Administrator}{TCEH.com}{Nov 2017 -- Sep 2018}{Moscow}
+
+\cvsection{Selected Projects}
+
+\cvevent{Multi-Region Fintech Platform}{Platform Architecture}{}{}
+\begin{itemize}
+\item Domain-isolated EKS clusters (trading core, OTC, market guard) enforcing hard blast-radius boundaries for crypto trading. Pulumi (Python) for unit-tested, type-safe infrastructure. Karpenter with Graviton/ARM and spot instances for sub-60s node provisioning during market volatility spikes
+\item \textbf{USD 170B+ annual volume \textperiodcentered{} 5 AWS regions \textperiodcentered{} active-active}
+\end{itemize}
+
+\divider
+
+\cvevent{Internal Developer Platform (ft-toolbox)}{Platform Engineering}{}{}
+\begin{itemize}
+\item Platform-as-a-Product approach: evaluated Backstage, built purpose-fit tooling due to crypto regulatory constraints. FastAPI + React with Claude API for AI-augmented operations --- automated Jira digests, cost anomaly narration, Grafana audit that caught disabled SSL on 12/14 Postgres datasources
+\end{itemize}
+
+\divider
+
+\cvevent{Observability \& Incident Intelligence}{Observability}{}{}
+\begin{itemize}
+\item VictoriaMetrics over Thanos for simpler ops and better long-term retention. OTEL dual pipeline: metrics via Prometheus Remote Write, traces via Tempo. Robusta for AI-powered alert enrichment. Every alert links to a runbook --- contributing to zero major incidents in 2+ years
+\end{itemize}
+
+\divider
+
+\cvevent{Security \& Compliance Engineering}{Security}{}{}
+\begin{itemize}
+\item Led SOC 2 Type II and ISO 27001 audits with zero critical findings. SOPS for encrypted secrets in git, container image signing (cosign/Sigstore), SBOM via Trivy, Nitro Enclaves for custody-adjacent confidential computing. MiCA-ready ahead of the July 2026 EU deadline
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SIDEBAR (RIGHT)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\switchcolumn
+
+\cvsection{Key Results}
+
+\cvachievement{\faChartLine}{USD 170B+}{annual trading volume across the network}
+
+\divider
+
+\cvachievement{\faPiggyBank}{50\%}{cloud cost reduction across 5 AWS regions}
+
+\divider
+
+\cvachievement{\faShield*}{Zero}{major incidents in 2+ years, 24/7 markets}
+
+\divider
+
+\cvachievement{\faAward}{SOC 2 / ISO 27001}{zero critical findings; MiCA-ready}
+
+\cvsection{Skills}
+
+\cvsubsection{Cloud \& Compute}
+\cvtag{AWS EKS}\cvtag{RDS Aurora}\cvtag{TGW}\cvtag{Graviton}\cvtag{Shield/WAF}
+
+\cvsubsection{IaC}
+\cvtag{Pulumi}\cvtag{Terraform}\cvtag{AWS CDK}
+
+\cvsubsection{K8s Platform}
+\cvtag{Karpenter}\cvtag{ArgoCD}\cvtag{Istio}\cvtag{Kyverno}\cvtag{Velero}\cvtag{CNPG}
+
+\cvsubsection{Observability \& FinOps}
+\cvtag{Victoria}\cvtag{Loki}\cvtag{Tempo}\cvtag{OTEL}\cvtag{Robusta}\cvtag{Kubecost}
+
+\cvsubsection{Security}
+\cvtag{Trivy}\cvtag{cosign}\cvtag{Prowler}\cvtag{Nitro}\cvtag{OIDC/Dex}
+
+\cvsubsection{Data \& Messaging}
+\cvtag{Postgres}\cvtag{PgBouncer}\cvtag{NATS}\cvtag{RabbitMQ}\cvtag{ES}
+
+\cvsubsection{Languages \& AI}
+\cvtag{Python}\cvtag{Go}\cvtag{Bash}\cvtag{Claude API}
+
+\cvsection{Domain}
+\cvtag{OTC}\cvtag{Market-Making}\cvtag{Arbitrage}\cvtag{AML/KYC}\cvtag{MiCA}
+
+\cvsection{Languages}
+
+\cvskill{English}{5}
+\divider
+\cvskill{Russian}{5}
+\divider
+\cvskill{Japanese}{2}
+
+\cvsection{Certifications}
+
+\cvachievement{\faCertificate}{CKA}{Certified Kubernetes Administrator --- CNCF, 2023}
+
+\end{paracol}
+
+\end{document}

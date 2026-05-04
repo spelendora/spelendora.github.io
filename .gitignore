@@ -8,3 +8,16 @@ cv-pdf/
 generate-cv-pdf.py
 screenshot-audit.py
 screenshots/
+
+# CV experimentation artifacts
+cv-awesome/cv-v1.tex.bak
+cv-awesome/cv.pdf
+cv-altacv/cv.pdf
+cv-altacv/cv.log
+cv-typst/example.typ
+cv-typst/lib.typ
+cv-typst/template-example.typ
+cv-jsonresume/node_modules/
+cv-jsonresume/package-lock.json
+cv-jsonresume/resume-even.html
+cv-jsonresume/resume-even.pdf
