@@ -21,3 +21,5 @@ cv-jsonresume/node_modules/
 cv-jsonresume/package-lock.json
 cv-jsonresume/resume-even.html
 cv-jsonresume/resume-even.pdf
+cv-awesome/cv-ru.pdf
+__pycache__/

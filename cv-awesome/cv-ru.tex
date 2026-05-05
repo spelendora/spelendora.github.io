@@ -1,0 +1,177 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV — Валерий Грачев (русская версия)
+% Template: https://github.com/posquit0/Awesome-CV
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{awesome-cv}
+
+\geometry{left=1.2cm, top=.7cm, right=1.2cm, bottom=1.4cm, footskip=.4cm}
+
+% Override fonts for proper Cyrillic+Latin kerning
+\setmainfont{Helvetica}[
+  Ligatures=NoCommon,
+  Scale=0.95
+]
+\setsansfont{Helvetica}[
+  Ligatures=NoCommon,
+  Scale=0.95
+]
+
+\definecolor{awesome}{HTML}{0D4F4A}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Валерий}{Грачев}
+\position{Head of Platform Engineering}
+\address{Бангкок, Таиланд{\enskip\cdotp\enskip}Удалённо (открыт к релокации в США)}
+
+\telegram{spelendora}
+\email{spelendora@gmail.com}
+\homepage{spelendora.com/devops}
+\linkedin{spelendora}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {}
+  {Валерий Грачев~~~·~~~Head of Platform Engineering}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+% О СЕБЕ
+%-------------------------------------------------------------------------------
+\cvsection{О себе}
+
+\begin{cvparagraph}
+Руковожу общей платформой, через которую прошло \textbf{5,2 млн+ институциональных крипто-сделок только в Q1 2026} (\textbf{+160\% YoY по числу транзакций, +43\% YoY по объёму}) и \textbf{15 млн+ сделок за 2024--2025}; платформа обслуживает \textbf{150+ институциональных участников из 40 стран} для \href{https://finchtrade.com}{FinchTrade}, \href{https://finerymarkets.com}{Finery Markets} (\href{https://www.cnbc.com/2025/06/19/the-worlds-top-fintech-companies-2025.html}{CNBC World's Top 300 Fintech 2025}, Digital Assets; лауреат Deloitte Technology Fast 50 ME \& Cyprus 2026) и внутренней торговой команды. \textbf{Head of Platform Engineering в Finery Tech Holding}, подчиняюсь CEO напрямую; техническая ответственность за инфраструктуру, безопасность, комплаенс и платформу для разработчиков. \textbf{Применяю продуктовый подход к инфраструктуре}: ноль крупных инцидентов за 2+ года на рынках 24/7, снижение облачных расходов на 50\% и \textbf{DORA Elite delivery} (lead time до 6 минут, MTTR до 4 минут) --- платформенная команда из двух человек обслуживает 30 инженеров (рычаг 1:15).
+\end{cvparagraph}
+
+%-------------------------------------------------------------------------------
+% ОПЫТ РАБОТЫ
+%-------------------------------------------------------------------------------
+\cvsection{Опыт работы}
+
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Head of Platform Engineering}
+    {Finery Tech Holding (материнская компания \href{https://finchtrade.com}{FinchTrade} \& \href{https://finerymarkets.com}{Finery Markets})}
+    {Бангкок · Удалённо}
+    {Ноя. 2021 — настоящее время}
+    {
+      \begin{cvitems}
+        \item {Спроектировал active-active инфраструктуру в 5 регионах AWS/EKS (\textbf{800+ подов, 100+ микросервисов}), обеспечивающую \textbf{ноль крупных инцидентов за 2+ года} на крипто-рынках 24/7. Автомасштабирование Karpenter, RBAC через Kyverno, описанный в коде incident response с 15-минутным SLA на SEV1 и индивидуальными RTO/RPO по компонентам; on-call paging управляется как код через собственный Pulumi-провайдер. Также автор сервиса аутентификации (Cognito + Lambda + KMS authorizers), который служит периметром для всего институционального API-трафика во всех окружениях.}
+        \item {Построил \textbf{внутреннюю платформу разработчиков (IDP)}: один манифест на сервис генерирует CI-пайплайны, публикует Helm-значения в GitOps-репозиторий и развёртывает через ArgoCD ApplicationSets, с эфемерными preview-окружениями для каждой ветки. Оценил Backstage и Port; собрали in-house из-за регуляторных ограничений в крипто-домене.}
+        \item {Снизил облачные расходы на \textbf{50\%} через FinOps: консолидация Karpenter, spot-инстансы в non-prod, Kubecost (FOCUS-aligned) для атрибуции по командам, Aurora-хранилище данных о затратах с непрерывным AI-анализом и собственный Slack-бот аномалий, который находит забытые ресурсы и шумные регрессии с \textbf{LLM-сгенерированными объяснениями и рекомендациями по исправлению}, отправляемыми напрямую ответственной команде.}
+        \item {Провёл организацию через аудиты \textbf{SOC 2 Type II и ISO 27001/27701} как технический владелец. Построил MiCA-ready и DORA-aligned меры контроля: изоляция подписи через AWS Nitro Enclaves, интеграции с MPC-кастоди (Fireblocks, Inabit), AML/KYC-пайплайн (Sumsub) с поддержкой FATF Travel Rule, а также система IAM-управления доступом с периодическими ревизиями, неизменяемым audit log и экспортом PDF-отчётов для аудиторов.}
+        \item {Запустил внутренний operations-монолит (FastAPI + React + Slack-бот), покрывающий 11 продакшн-направлений; ключевые --- \textbf{две продакшн-интеграции с Claude} (ежедневный Jira-дайджест + Slack-ассистент по базе знаний на Confluence), AI-обогащённая маршрутизация алертов через Robusta, оркестрация эфемерных окружений и процесс координации релизов. Единая точка входа в AI-ассистированные ops-инструменты для всей инженерной команды.}
+        \item {\textbf{Веду платформенную команду из 2 человек, обслуживающую 30 инженеров (рычаг 1:15)}: лично нанял platform-инженера, настроил on-call-ротацию и SEV-таксономию, провожу квартальное планирование роадмапа по принципу platform-as-a-product с инженерными лидами, управляю отношениями с вендорами в крипто-кастоди (Fireblocks, Inabit), фиатных банковских каналах (ClearJunction, BCB) и AML/KYC (Sumsub). Удерживаю показатели \textbf{DORA Elite} (lead time до 6 минут, MTTR до 4 минут) на платформе из 100+ микросервисов без роста штата.}
+        \item {\textbf{Incident commander, веду расследование} security- и платформенных инцидентов: от триажа до root cause; сопоставляю session telemetry, WebSocket-заголовки, VPC flow logs и application traces, чтобы атрибутировать атаки, профилировать threat actors, выявлять VPN/proxy и инфраструктурные аномалии и готовить post-mortem с приоритизированным remediation backlog. Одинаково уверенно работаю с инцидентами доступности (откаты, failover, runbook execution) и с целенаправленными атаками, требующими криминалистического анализа.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Volunteer DevOps Lead (частичная занятость)}
+    {\href{https://helpingtoleave.org}{helpingtoleave.org}}
+    {Удалённо}
+    {Фев. 2022 — Авг. 2023}
+    {
+      \begin{cvitems}
+        \item {Построил и эксплуатировал инфраструктуру для одной из крупнейших украинских организаций по гражданской эвакуации --- \textbf{92 тыс.+ человек получили помощь}, \textbf{16 тыс.+ полностью сопровождённых эвакуаций} с фронтовых и оккупированных территорий. Отмечено \href{https://huri.harvard.edu/news/uchitelka-rufina-bazlova-tetiana-kulykivska-russias-war-against-ukraine-bilingual}{Гарвардским институтом украинских исследований}.}
+        \item {Руководил командой из 5 DevOps-инженеров, координировал работу с 30+ техническими специалистами. Основная платформа --- сеть Telegram-ботов, обслуживающая 300+ волонтёров, которые координируют эвакуации в реальном времени в зонах активных боевых действий.}
+        \item {Отражал DDoS-атаки государственного уровня через AWS Shield и WAF, чтобы поддерживать сервисы эвакуации онлайн во время активных военных операций.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Co-Founder · Head of Product \& Engineering}
+    {\href{https://terminal.aidu.me/}{AIDU (terminal.aidu.me)}}
+    {Удалённо}
+    {Окт. 2020 — Ноя. 2021}
+    {
+      \begin{cvitems}
+        \item {Сооснователь B2B-маркетплейса, соединяющего розничные магазины с подрядчиками сервисных услуг в Казахстане. Вырастил с нуля до \textbf{30 тыс.+ клиентов} и \textbf{1,3 тыс.+ активных подрядчиков}.}
+        \item {Полное владение архитектурой, инфраструктурой (GCP/Kubernetes), наймом, поставками и расчётами с подрядчиками end-to-end. Руководил командой из 10 человек.}
+        \item {Интегрировал крупные ритейл-сети: Алсер, Мечта, Leroy Merlin, Sulpak, DNS, Технодом --- что позволило продавать сервисные услуги прямо на кассе.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Head of Product \& Engineering (параллельный контракт)}
+    {EdTech-платформа (\href{https://iidf.ru}{портфель ФРИИ})}
+    {Удалённо}
+    {Окт. 2018 — Ноя. 2021}
+    {
+      \begin{cvitems}
+        \item {Построил корпоративную образовательную платформу для крупнейшего российского стартап-акселератора (ФРИИ --- 400+ портфельных компаний, фонд 6 млрд руб.). 30 тыс.+ студентов прошли обучение на платформе. Руководил командой из 7 человек.}
+        \item {\textit{Параллельная частичная занятость одновременно с Fevlake (2018--2020) и AIDU (2020--2021).}}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {DevOps Engineer}
+    {\href{https://fevlake.com}{Fevlake.com}}
+    {Москва}
+    {Окт. 2018 — Окт. 2020}
+    {
+      \begin{cvitems}
+        \item {DevOps-консалтинг (Россия), поставлял Kubernetes-платформы и CI/CD для клиентских проектов в финтехе, e-commerce и SaaS. Вёл миграции монолит-в-микросервисы и переходы с on-prem в облако.}
+      \end{cvitems}
+    }
+
+\end{cventries}
+
+%-------------------------------------------------------------------------------
+% ТЕХНИЧЕСКИЕ НАВЫКИ
+%-------------------------------------------------------------------------------
+\cvsection{Технические навыки}
+
+\begin{cvskills}
+  \cvskill{Лидерство и практики}{Platform-as-a-Product, Engineering Leadership, найм и построение команды, управление вендорами, Site Reliability Engineering (SRE), FinOps, DevSecOps, Compliance Engineering, Internal Developer Platforms (IDP), GitOps, Incident Command}
+  \cvskill{Crypto \& Fintech домен}{Trading Infrastructure (OTC desks, non-custodial ECN, поддержка маркетмейкинга и арбитража), MPC-кастоди (Fireblocks, Inabit), AWS Nitro Enclaves для изоляции подписи, AML/KYC-пайплайны (Sumsub), FATF Travel Rule}
+  \cvskill{AI-Augmented Ops}{Продакшн MCP-серверы (Model Context Protocol), Claude API для саммаризации Jira и Confluence-grounded ассистента в Slack, AI-обогащённая маршрутизация алертов через Robusta, incident.io AI Agent (пилот triage), AI-объяснение FinOps-аномалий}
+  \cvskill{Compliance \& GRC}{SOC 2 Type II, ISO 27001/27701, MiCA-ready (вступление в силу июль 2026), DORA (Digital Operational Resilience Act), FINMA SRO (VQF), IAM access-governance с audit trail и экспортом PDF-доказательств}
+  \cvskill{Банковские и расчётные каналы}{Мультиюрисдикционные фиатные каналы: ClearJunction (EUR), BCB Group (GBP), FVBank (USD), FiatRepublic, Nexpay; интеграции с tier-1 биржами (Kraken, Binance, Deribit, FalconX)}
+  \cvskill{Cloud \& Kubernetes}{Kubernetes (EKS) multi-region/multi-account, Karpenter, ArgoCD ApplicationSets, Istio Ambient, Kyverno, Velero, External Secrets Operator, CloudNativePG; AWS Aurora, Transit Gateway, Pod Identity, Shield/WAF, CloudFront}
+  \cvskill{Infrastructure as Code}{Pulumi (Python, кастомные провайдеры через gen-sdk), unit-tested с моками, drift detection с Slack-алертами; Terraform (legacy)}
+  \cvskill{Observability \& Reliability}{OpenTelemetry, VictoriaMetrics (Prometheus-compatible), Loki, Tempo, Grafana, Robusta, Fluent Bit; SLO/SLI и практика error-budget, метрики DORA Elite (DevOps Research \& Assessment), таксономия SEV1--SEV4, RTO/RPO по компонентам}
+  \cvskill{Developer Platform \& CI/CD}{Self-service onboarding-манифесты, кастомный GitLab CI pipeline-генератор (17K LoC тестов, gate 85\% покрытия), Helm + ArgoCD GitOps, эфемерные окружения, BuildKit remote-build кэширование}
+  \cvskill{FinOps}{Kubecost (FOCUS-aligned), атрибуция по командам, Slack-бот аномалий с AI-генерируемыми рекомендациями по устранению, Aurora-хранилище данных по затратам}
+  \cvskill{Security \& Identity}{Trivy SBOM/CVE, Semgrep, Gitleaks, Kyverno admission, Dex/OIDC-федерация, incident.io paging-as-code, AWS Secrets Manager}
+  \cvskill{Сетевая инфраструктура}{Multi-VPC AWS с policy-driven Transit Gateway hub-and-spoke роутингом; двойной парк Traefik (внешний/внутренний NLB); self-hosted Headscale с встроенным DERP-релеем (SOC2 data-residency)}
+  \cvskill{Data Platform}{PostgreSQL (CloudNativePG), Redis, NATS, RabbitMQ, S3 + CloudFront}
+  \cvskill{Языки программирования}{Python (основной), Go, Bash}
+\end{cvskills}
+
+\vspace{2pt}
+\textit{\small Иностранные языки: английский (профессиональный), русский (родной), японский (A2/B1).}
+
+%-------------------------------------------------------------------------------
+% СЕРТИФИКАЦИИ
+%-------------------------------------------------------------------------------
+\cvsection{Сертификации}
+
+\begin{cvhonors}
+  \cvhonor
+    {Certified Kubernetes Administrator (CKA)}
+    {CNCF --- Cloud Native Computing Foundation}
+    {}
+    {2023}
+\end{cvhonors}
+
+%-------------------------------------------------------------------------------
+\end{document}
