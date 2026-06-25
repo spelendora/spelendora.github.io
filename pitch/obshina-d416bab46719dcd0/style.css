@@ -237,7 +237,9 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
   opacity:0; transform:translateY(22px) skewY(2deg); filter:blur(5px);
   transition:opacity .8s ease, transform .9s cubic-bezier(.16,.84,.3,1), filter .9s ease;
 }
-.moodgrid__list li.off{ color:var(--slate); font-style:italic; }
+/* dim keyword list: keep the bright snow ink but knock it back with opacity so
+   contrast stays ≥4.5:1 on the near-black bg (the old slate fill read ~2:1) */
+.moodgrid__list li.off{ color:var(--snow); opacity:.72; font-style:italic; }
 .moodgrid__list li::after{ content:"·"; color:var(--straw); margin-left:clamp(8px,1.2vw,22px); opacity:.55; }
 .moodgrid__list li:last-child::after{ content:""; }
 .slide--mood.in-view .moodgrid__list li{ opacity:1; transform:none; filter:blur(0); }
@@ -254,15 +256,22 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
   font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--bone);
   background:rgba(6,7,10,.55); backdrop-filter:blur(2px); }
 .dip--b figcaption{ left:auto; right:0; }
+/* caption sits over the bright golden diptych seam — give it a scrimmed dark
+   panel (same recipe as .copyblock--panel on THE LOCATION) so the centered
+   serif copy is readable instead of floating over the highlight */
 .dip__caption{ position:absolute; left:50%; bottom:clamp(30px,7vh,72px); transform:translateX(-50%);
-  z-index:3; max-width:min(38rem,80vw); text-align:center; padding:0 20px;
+  z-index:3; max-width:min(40rem,82vw); text-align:center;
+  padding:clamp(18px,2.2vw,28px) clamp(22px,2.6vw,36px);
+  background:linear-gradient(to bottom, rgba(6,7,10,.74), rgba(6,7,10,.86));
+  backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);
+  border:1px solid rgba(159,176,198,.16);
   opacity:0; transition:opacity 1.1s ease .2s, transform 1.1s cubic-bezier(.16,.84,.3,1) .2s;
   transform:translate(-50%,24px); }
 .slide--diptych.in-view .dip__caption{ opacity:1; transform:translate(-50%,0); }
 .dip__caption .copyblock__eyebrow{ color:var(--peri); }
 .dip__copy{ font-family:var(--serif); font-style:italic; font-weight:300;
   font-size:clamp(.95rem,1.7vw,1.32rem); line-height:1.5; color:var(--snow);
-  text-shadow:0 2px 30px rgba(0,0,0,.9); }
+  text-shadow:0 2px 6px rgba(0,0,0,.92), 0 2px 30px rgba(0,0,0,.9); }
 
 /* ───────── LOCATION STRIP ───────── */
 .slide--strip{ flex-direction:column; align-items:stretch; justify-content:center; gap:clamp(22px,4vh,40px); }
@@ -432,7 +441,7 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
 .lineage__head{ font-family:var(--serif); font-weight:300; line-height:1;
   font-size:clamp(1.9rem,5vw,3.6rem); color:var(--snow); margin-bottom:clamp(12px,2vh,20px); text-wrap:balance; }
 .lineage__lead{ font-family:var(--serif2); font-size:clamp(.92rem,1.4vw,1.1rem);
-  line-height:1.6; color:var(--bone); max-width:40rem; }
+  line-height:1.6; color:var(--bone); max-width:62ch; }
 .lineage__grid{ display:grid; gap:clamp(22px,3vw,44px) clamp(28px,4vw,56px);
   grid-template-columns:repeat(3,1fr); align-items:start; }
 .lineage__col{ opacity:0; transform:translateY(20px); filter:blur(5px);
@@ -556,7 +565,8 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
   .slide--diptych .dip{ height:clamp(220px,42vw,300px); }
   .dip figcaption, .dip--b figcaption{ left:0; right:auto; bottom:8px; }
   .dip__caption{ position:static; transform:none; left:auto; bottom:auto;
-    max-width:100%; padding:0; text-align:left; margin-top:6px; }
+    max-width:100%; padding:0; text-align:left; margin-top:6px;
+    background:none; border:0; backdrop-filter:none; -webkit-backdrop-filter:none; }
   .slide--diptych.in-view .dip__caption{ transform:none; }
   .dip__copy{ text-shadow:none; }
 
@@ -566,11 +576,29 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
   .moodgrid__list li{ font-size:clamp(1.4rem,8vw,2.1rem); }
   .moodgrid{ padding-bottom:clamp(40px,9vh,72px); }
 
-  /* CREW: the closing "стань четвёртой" casting link sits at the very bottom,
-     where the fixed НАВЕРХ button overlaps it. Reserve space so the link clears
-     the to-top button's tap zone. */
+  /* CREW: the closing casting link sits at the very bottom, where the fixed
+     НАВЕРХ button overlaps it. Reserve space so the link clears the to-top
+     button's tap zone. */
   .crew{ padding-bottom:64px; }
   .crew__contact{ max-width:64%; }
+
+  /* CONCEPT / WARDROBE / MAKEUP: on phones the body copy crosses bright image
+     areas. Strengthen the directional veils and add a text-shadow so the serif
+     copy keeps contrast over the photo. */
+  .slide__veil--left{ background:
+    linear-gradient(to right, rgba(6,7,10,.96) 0%, rgba(6,7,10,.78) 42%, rgba(6,7,10,.34) 74%, rgba(6,7,10,.12) 100%),
+    linear-gradient(to top, rgba(6,7,10,.9) 0%, rgba(6,7,10,.3) 55%, rgba(6,7,10,0) 100%); }
+  .slide__veil--right{ background:
+    linear-gradient(to left, rgba(6,7,10,.96) 0%, rgba(6,7,10,.78) 42%, rgba(6,7,10,.34) 74%, rgba(6,7,10,.12) 100%),
+    linear-gradient(to top, rgba(6,7,10,.9) 0%, rgba(6,7,10,.3) 55%, rgba(6,7,10,0) 100%); }
+  /* MAKEUP has the brightest plate — give it the heaviest veil */
+  .slide--full[data-label="MAKEUP"] .slide__veil--right{ background:
+    linear-gradient(to left, rgba(6,7,10,.98) 0%, rgba(6,7,10,.9) 38%, rgba(6,7,10,.6) 68%, rgba(6,7,10,.28) 100%),
+    linear-gradient(to top, rgba(6,7,10,.94) 0%, rgba(6,7,10,.4) 55%, rgba(6,7,10,0) 100%); }
+  .copyblock__body{ text-shadow:0 1px 3px rgba(0,0,0,.85); }
+
+  /* bump the tiny eyebrow labels so they're legible on phones */
+  .copyblock__eyebrow{ font-size:clamp(11px,3vw,13px); }
 }
 
 /* very small phones (~375px and under): keep the hero word inside the gutter */
@@ -662,4 +690,7 @@ img{ display:block; width:100%; height:100%; object-fit:cover; }
 @media (max-width:760px){
   .map__grid{ grid-template-columns:1fr; }
   .map__canvas{ min-height:300px; order:-1; }
+  /* the fixed НАВЕРХ ↑ button overlaps the last location's Yandex link —
+     reserve space so the 3rd point's link clears the to-top tap zone */
+  .map__list{ padding-bottom:72px; }
 }
