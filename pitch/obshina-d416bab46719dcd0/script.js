@@ -208,3 +208,35 @@ const LINEAGE = [
     else if(e.key==="ArrowRight") show(idx+1);
   });
 })();
+
+/* ---- карта локаций (Leaflet + OSM) ---- */
+function initLocationMap(){
+  const el = document.getElementById("map");
+  if(!el) return;
+  if(typeof L === "undefined"){ window.addEventListener("load", initLocationMap, {once:true}); return; }
+  if(el._mapInited) return; el._mapInited = true;
+  const pts = [
+    { ll:[55.845378, 38.160818], n:"1", title:"Точка сбора" },
+    { ll:[55.844026, 38.234499], n:"2", title:"Конная ферма — КСК «Русские просторы»" },
+    { ll:[55.838709, 38.171836], n:"3", title:"Лётное поле / аэродром" }
+  ];
+  const map = L.map(el, { scrollWheelZoom:false, attributionControl:true });
+  // cold/dark CARTO tiles (no API key)
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    maxZoom:19, attribution:'&copy; OpenStreetMap &copy; CARTO'
+  }).addTo(map);
+  const markers = pts.map(p=>{
+    const icon = L.divIcon({ className:"", html:`<div class="map-pin"><span>${p.n}</span></div>`,
+      iconSize:[26,26], iconAnchor:[13,26], popupAnchor:[0,-26] });
+    return L.marker(p.ll, {icon}).addTo(map).bindPopup(`<b>${p.n}. ${p.title}</b>`);
+  });
+  const group = L.featureGroup(markers);
+  map.fitBounds(group.getBounds().pad(0.35));
+  // re-fit when the map section first scrolls into view (Leaflet needs a sized container)
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ setTimeout(()=>{ map.invalidateSize(); map.fitBounds(group.getBounds().pad(0.35)); }, 200); } });
+  }, {threshold:0.2});
+  io.observe(el.closest(".slide"));
+}
+if(document.readyState === "complete") initLocationMap();
+else window.addEventListener("load", initLocationMap, {once:true});

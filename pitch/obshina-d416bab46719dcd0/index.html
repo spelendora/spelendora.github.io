@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -267,8 +269,38 @@
       <div class="lineage__grid" id="lineage"></div>
     </div>
   </section>
+  <!-- ════ ЛОКАЦИИ · КАРТА ════ -->
+  <section class="slide slide--map" data-index="10" data-label="MAP">
+    <div class="mapwrap">
+      <div class="map__head">
+        <p class="copyblock__eyebrow">x · где снимаем</p>
+        <h2 class="map__title">Три точки.</h2>
+        <p class="map__sub">Московская область, восток. Сбор — затем две локации рядом.</p>
+      </div>
+      <div class="map__grid">
+        <div id="map" class="map__canvas" role="img" aria-label="Карта трёх точек съёмки"></div>
+        <ol class="map__list">
+          <li class="map__pt map__pt--1">
+            <span class="map__num">1</span>
+            <div><b>Точка сбора</b><span>55.8454, 38.1608</span>
+            <a href="https://yandex.com/maps/-/CTQ84K89" target="_blank" rel="noopener">открыть в Яндекс.Картах ↗</a></div>
+          </li>
+          <li class="map__pt map__pt--2">
+            <span class="map__num">2</span>
+            <div><b>Конная ферма — КСК «Русские просторы»</b><span>55.8440, 38.2345</span>
+            <a href="https://yandex.com/maps/-/CTQ8aEof" target="_blank" rel="noopener">открыть в Яндекс.Картах ↗</a></div>
+          </li>
+          <li class="map__pt map__pt--3">
+            <span class="map__num">3</span>
+            <div><b>Лётное поле / аэродром</b><span>55.8387, 38.1718</span>
+            <a href="https://yandex.com/maps/-/CTQ8a68o" target="_blank" rel="noopener">открыть в Яндекс.Картах ↗</a></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
   <!-- ════ ДЛЯ КОМАНДЫ ════ -->
-  <section class="slide slide--crew" data-index="10" data-label="FOR THE TEAM">
+  <section class="slide slide--crew" data-index="11" data-label="FOR THE TEAM">
     <div class="crew">
       <div class="crew__intro">
         <p class="copyblock__eyebrow">x · участникам</p>
