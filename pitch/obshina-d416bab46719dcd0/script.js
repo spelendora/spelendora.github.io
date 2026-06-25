@@ -168,3 +168,43 @@ const LINEAGE = [
     onScroll();
   }
 })();
+
+/* ---- лайтбокс: просмотр референса в полном размере ---- */
+(function lightbox(){
+  const lb = document.getElementById("lightbox");
+  if(!lb) return;
+  const lbImg = document.getElementById("lb-img");
+  const lbCount = document.getElementById("lb-count");
+  const elClose = document.getElementById("lb-close");
+  const elPrev = document.getElementById("lb-prev");
+  const elNext = document.getElementById("lb-next");
+
+  // все кликабельные картинки-референсы (галереи, мозаика, стрипы, трип, диптих)
+  const sel = ".gallery figure img, .mosaic figure img, .strip__rail figure img, .slide--trip figure img, .dip img";
+  const imgs = Array.from(document.querySelectorAll(sel));
+  let idx = 0;
+
+  function show(i){
+    idx = (i + imgs.length) % imgs.length;
+    const el = imgs[idx];
+    lbImg.src = el.currentSrc || el.src;
+    lbImg.alt = el.alt || "";
+    lbCount.textContent = (idx+1) + " / " + imgs.length;
+  }
+  function open(i){ show(i); lb.hidden = false; document.body.style.overflow="hidden"; elClose.focus(); }
+  function close(){ lb.hidden = true; lbImg.src=""; document.body.style.overflow=""; }
+
+  imgs.forEach((el,i)=>{
+    el.addEventListener("click", ()=>open(i));
+  });
+  elClose.addEventListener("click", close);
+  elPrev.addEventListener("click", ()=>show(idx-1));
+  elNext.addEventListener("click", ()=>show(idx+1));
+  lb.addEventListener("click", e=>{ if(e.target===lb) close(); });   // клик по фону закрывает
+  document.addEventListener("keydown", e=>{
+    if(lb.hidden) return;
+    if(e.key==="Escape") close();
+    else if(e.key==="ArrowLeft") show(idx-1);
+    else if(e.key==="ArrowRight") show(idx+1);
+  });
+})();
