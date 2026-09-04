@@ -1374,14 +1374,6 @@ button {
         <a href="https://t.me/spelendora" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">@spelendora</a>
       </div>
       <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">Line</span>
-        <a href="https://line.me/ti/p/MPvJdZcqtR" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">spelendora</a>
-      </div>
-      <div class="contact-overlay__item">
-        <span class="contact-overlay__item-label">WhatsApp</span>
-        <a href="https://wa.me/79859113856" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">+7 985 911 38 56</a>
-      </div>
-      <div class="contact-overlay__item">
         <span class="contact-overlay__item-label">LinkedIn</span>
         <a href="https://linkedin.com/in/spelendora" class="contact-overlay__item-value" target="_blank" rel="noopener noreferrer">Valeriy Grachev</a>
       </div>
@@ -1390,7 +1382,7 @@ button {
         <a href="mailto:spelendora@gmail.com" class="contact-overlay__item-value">spelendora@gmail.com</a>
       </div>
     </div>
-    <p class="contact-overlay__note">Open to platform engineering leadership roles,<br>consulting, and advisory for crypto/fintech<br>infrastructure. Remote preferred.</p>
+    <p class="contact-overlay__note">Looking for a hands-on platform engineering<br>leadership role in crypto/fintech.<br>Remote.</p>
   </div>
 </div>
 
@@ -1406,7 +1398,6 @@ button {
     <p class="hero__tagline">Crypto Trading Infrastructure &amp; Platform Engineering</p>
     <ul class="hero__nav">
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="/cv.pdf" target="_blank" rel="noopener" download>CV (PDF)</a></li>
       <li><a href="#contact" id="contactTrigger">Contact</a></li>
@@ -1419,7 +1410,7 @@ button {
       <span>Grachev</span>
     </h1>
     <div class="hero__rule"></div>
-    <p class="hero__descriptor">Head of Platform Engineering &middot; Bangkok &middot; Remote</p>
+    <p class="hero__descriptor">Head of Platform Engineering &middot; Remote</p>
   </div>
 
   <button class="hero__scroll" id="scrollCue" aria-label="Scroll to about section">
@@ -1433,7 +1424,7 @@ button {
   <div class="about__inner">
     <p class="about__label">About</p>
     <blockquote class="about__quote">
-      Head of Platform Engineering at Finery Tech Holding (parent of FinchTrade and Finery Markets &mdash; CNBC World&rsquo;s Top 300 Fintech 2025; Deloitte Technology Fast 50 ME &amp; Cyprus 2026 winner). Run the shared platform that processed 5.2M+ institutional crypto trades in Q1 2026 alone (+160% YoY transactions, +43% YoY volume) and 15M+ trades across 2024&ndash;2025, serving 150+ institutional participants in 40 countries. Reporting to the CEO with technical responsibility across infrastructure, security, compliance, and developer platform. Run infrastructure as a product: zero major outages in 2+ years on 24/7 markets, 50% cloud cost reduction, and DORA Elite delivery (lead time under 6 min, MTTR under 4 min) &mdash; a two-person platform team supporting 30 engineers (1:15 leverage). Previously co-founded a B2B marketplace serving 30K+ customers, and volunteered as DevOps Lead for helpingtoleave.org &mdash; Ukraine&rsquo;s largest civilian evacuation effort (92K+ people assisted).
+      Head of Platform Engineering at Finery Tech Holding &mdash; a Swiss OTC desk and a regulated crypto ECN (FinchTrade and Finery Markets), serving 150+ institutional participants in 40 countries. Report to the CEO; own infrastructure, security, compliance, and the developer platform. I run infrastructure as a product with a two-person team supporting 30 engineers. Before this I co-founded a B2B marketplace that reached 30K+ customers, and volunteered as DevOps Lead for helpingtoleave.org &mdash; Ukraine&rsquo;s largest civilian evacuation effort.
     </blockquote>
   </div>
 </section>
@@ -1455,11 +1446,11 @@ button {
     </div>
     <div class="metrics__item" data-delay="3">
       <p class="metrics__value">DORA Elite</p>
-      <p class="metrics__label">Lead Time &lt;6m &middot; MTTR &lt;4m</p>
+      <p class="metrics__label">Lead time under 6 min &middot; MTTR under 4 min</p>
     </div>
     <div class="metrics__item" data-delay="4">
-      <p class="metrics__value">1:15</p>
-      <p class="metrics__label">Platform Leverage (2 supporting 30)</p>
+      <p class="metrics__value">2 : 30</p>
+      <p class="metrics__label">Platform engineers supporting engineers</p>
     </div>
   </div>
 </section>
@@ -1468,8 +1459,7 @@ button {
 <section class="experience" id="experience">
   <div class="experience__header">
     <p class="experience__heading">Professional Experience</p>
-    <p class="experience__count">5 positions &middot; 8+ years</p>
-  </div>
+      </div>
 
   <ol class="exp-list">
 
@@ -1486,14 +1476,16 @@ button {
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Run the shared platform behind FinchTrade and Finery Markets (CNBC World&rsquo;s Top 300 Fintech 2025; Deloitte Technology Fast 50 ME &amp; Cyprus 2026 winner) &mdash; 5.2M+ institutional crypto trades in Q1 2026 alone (+160% YoY transactions, +43% YoY volume), 15M+ trades across 2024&ndash;2025, serving 150+ participants in 40 countries. Report to CEO with technical responsibility across infrastructure, security, compliance, and developer platform</li>
-        <li class="exp-item__bullet">Architected a 5-region active-active AWS/EKS footprint (800+ pods, 100+ microservices) delivering zero major outages in 2+ years on 24/7 crypto markets. Karpenter autoscaling, Kyverno-enforced RBAC, codified incident response with 15-min SEV1 SLA and per-component RTO/RPO; on-call paging provisioned as code through a custom Pulumi provider. Also authored the authentication gateway (Cognito + Lambda + KMS authorizers) &mdash; the perimeter for institutional API traffic across all environments</li>
-        <li class="exp-item__bullet">Built an internal developer platform (IDP): a single per-service manifest generates CI pipelines, pushes Helm values to GitOps, and rolls out via ArgoCD ApplicationSets, with ephemeral preview environments per branch. Evaluated Backstage and Port; built in-house due to crypto regulatory constraints</li>
-        <li class="exp-item__bullet">Cut cloud spend 50% through FinOps: Karpenter consolidation, spot in non-prod, Kubecost (FOCUS-aligned) for per-team attribution, an Aurora-backed cost data warehouse continuously analyzed by AI, and a custom Slack anomaly-alert bot that surfaces forgotten resources and noisy regressions with LLM-generated explanations and remediation suggestions delivered straight to the responsible team</li>
-        <li class="exp-item__bullet">Drove the org through SOC 2 Type II and ISO 27001/27701 audits as technical owner. Built MiCA-ready, DORA-aligned controls: signing isolation via AWS Nitro Enclaves, MPC custody integrations (Fireblocks, Inabit), AML/KYC pipeline integration (Sumsub) with FATF Travel Rule support, and an IAM access-governance system with periodic review campaigns, immutable audit log, and PDF evidence export for auditors</li>
-        <li class="exp-item__bullet">Shipped the internal operations monolith (FastAPI + React + Slack bot) covering 11 production feature scopes; highlights include two production Claude integrations (Jira daily digest + Confluence-grounded Slack knowledge-base assistant), AI-enriched alert routing via Robusta, ephemeral environment orchestration, and a release-coordination workflow. Frontline AI-augmented ops surface for the engineering org</li>
-        <li class="exp-item__bullet">Lead a 2-person platform team supporting 30 engineers (1:15 leverage): hired the platform engineer myself, set the on-call rotation and SEV taxonomy, run quarterly platform-as-a-product roadmap with engineering leads, manage vendor relationships across crypto custody (Fireblocks, Inabit), fiat banking rails (ClearJunction, BCB), and AML/KYC (Sumsub). Sustains DORA Elite delivery (lead time under 6 min, MTTR under 4 min) on a 100+ microservice platform without headcount growth</li>
-        <li class="exp-item__bullet">Incident commander and investigator for security and platform incidents: lead the response from triage to root cause; cross-correlate session telemetry, WebSocket headers, VPC flow logs, and application traces to attribute attacks, profile threat actors, surface VPN/proxy and infrastructure anomalies, and produce post-mortems with prioritized remediation backlogs. Equally comfortable on availability incidents (rollbacks, failovers, runbook execution) and on adversarial cases requiring forensic depth</li>
+        <li class="exp-item__bullet">Report to the CEO; own infrastructure, security, compliance, and the developer platform. The trading platform cleared 5.2M+ institutional trades in Q1 2026 alone, up 160% year over year</li>
+        <li class="exp-item__bullet">Hired the platform engineer, set the on-call rotation and SEV taxonomy, and run a quarterly roadmap with engineering leads, holding DORA Elite delivery with no added headcount</li>
+        <li class="exp-item__bullet">Architected a 5-region active-active AWS/EKS footprint of 800+ pods and 100+ microservices, carrying 24/7 crypto markets with no maintenance windows</li>
+        <li class="exp-item__bullet">Placed trading systems close to the venues they trade on, connected by an Istio mesh carrying mTLS, traffic management, and compliance rules like &ldquo;only the compliance service may call KYT.&rdquo; All of it written in Pulumi (Python)</li>
+        <li class="exp-item__bullet">Codified incident response: a 15-min SEV1 SLA, per-component RTO/RPO, a runbook behind every alert. Act as incident commander, correlating telemetry and flow logs to attribute attacks and drive post-mortems</li>
+        <li class="exp-item__bullet">Built the internal developer platform: service onboarding went from days to minutes, because a developer writes one manifest and gets CI with Semgrep, Gitleaks, Trivy and dependency-audit gates, a GitOps rollout, and an ephemeral preview environment per branch</li>
+        <li class="exp-item__bullet">That pipeline handles about 5,400 CI jobs a day at a median under 8 minutes, carrying around 600 merge requests a month</li>
+        <li class="exp-item__bullet">Cut cloud spend 50%: Karpenter consolidation, spot in non-prod, Kubecost (FOCUS-aligned) per-team attribution, plus a Slack bot that routes cost anomalies to the owning team with LLM-generated explanations</li>
+        <li class="exp-item__bullet">Owned the technical workstream for SOC 2 Type II and ISO 27001/27701 audits; both passed with no critical findings, and built the controls that made the platform MiCA-ready</li>
+        <li class="exp-item__bullet">Shipped an internal access-governance tool: multi-approver access requests on an append-only audit trail</li>
       </ul>
     </li>
 
@@ -1503,16 +1495,15 @@ button {
         <span class="exp-item__num">II</span>
         <div class="exp-item__header">
           <h3 class="exp-item__company">helpingtoleave.org</h3>
-          <p class="exp-item__role">Volunteer DevOps Lead (Part-Time)</p>
+          <p class="exp-item__role">Volunteer DevOps Lead (Part-time)</p>
         </div>
         <div class="exp-item__meta">
           <span class="exp-item__date">Feb 2022 &mdash; Aug 2023</span>
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built and operated infrastructure for one of Ukraine&rsquo;s largest civilian evacuation organizations &mdash; 92K+ people assisted, 16K+ fully guided evacuations from frontline and occupied territories. Featured by Harvard Ukrainian Research Institute</li>
-        <li class="exp-item__bullet">Led team of 5 DevOps engineers and coordinated with 30+ tech specialists. Core platform: Telegram bot network serving 300+ volunteers coordinating real-time evacuations across active war zones</li>
-        <li class="exp-item__bullet">AWS/EKS/CDK infrastructure with full observability stack. Mitigated state-level DDoS attacks using AWS Shield and WAF to keep evacuation services online during active military operations</li>
+        <li class="exp-item__bullet">Built and ran infrastructure for one of Ukraine&rsquo;s largest civilian evacuation organizations: 92K+ people assisted, 16K+ fully guided evacuations from frontline and occupied territories. Featured by the Harvard Ukrainian Research Institute</li>
+        <li class="exp-item__bullet">Led a team of 5 and coordinated with 30+ tech specialists on AWS/EKS/CDK infrastructure behind a Telegram bot network serving 300+ volunteers. Mitigated state-level DDoS attacks with AWS Shield and WAF to keep evacuation services online during active military operations</li>
       </ul>
     </li>
 
@@ -1521,17 +1512,16 @@ button {
       <div class="exp-item__top">
         <span class="exp-item__num">III</span>
         <div class="exp-item__header">
-          <h3 class="exp-item__company">AIDU (aidu.me)</h3>
-          <p class="exp-item__role">Co-Founder &middot; Head of Product & Engineering</p>
+          <h3 class="exp-item__company">AIDU (<a href="https://terminal.aidu.me/" target="_blank" rel="noopener noreferrer">terminal.aidu.me</a>)</h3>
+          <p class="exp-item__role">Co-Founder &middot; Head of Product &amp; Engineering</p>
         </div>
         <div class="exp-item__meta">
           <span class="exp-item__date">Oct 2020 &mdash; Nov 2021</span>
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Co-founded B2B marketplace platform connecting retail stores with service contractors in Kazakhstan. Built from zero to 30K+ customers with high retention rate and 1.3K+ active contractors across 254 service types</li>
-        <li class="exp-item__bullet">Owned all technical and product decisions: architecture, infrastructure (Kubernetes on GCP), hiring, delivery, and contractor payments. Led team of 10</li>
-        <li class="exp-item__bullet">Integrated with major retail chains: Alser, Mechta, Leroy Merlin, Sulpak, DNS, Technograd &mdash; enabling in-store service sales at checkout</li>
+        <li class="exp-item__bullet">Co-founded a B2B marketplace connecting retail stores with service contractors in Kazakhstan. Grew it from zero to 30K+ customers and 1.3K+ active contractors</li>
+        <li class="exp-item__bullet">Owned every technical and product decision (architecture, Kubernetes on GCP, hiring, delivery, contractor payments) and led a team of 10. Integrated with major retail chains (Alser, Mechta, Leroy Merlin, Sulpak, DNS), which enabled in-store service sales at checkout</li>
       </ul>
     </li>
 
@@ -1541,14 +1531,14 @@ button {
         <span class="exp-item__num">IV</span>
         <div class="exp-item__header">
           <h3 class="exp-item__company">EdTech Platform (IIDF Portfolio)</h3>
-          <p class="exp-item__role">Head of Product & Engineering (Contract)</p>
+          <p class="exp-item__role">Head of Product &amp; Engineering (Part-time contract)</p>
         </div>
         <div class="exp-item__meta">
           <span class="exp-item__date">Oct 2018 &mdash; Nov 2021</span>
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built enterprise education platform for Russia&rsquo;s largest startup accelerator (IIDF &mdash; 400+ portfolio companies, 6B RUB fund). 30K+ students completed programs through the platform. Led team of 7. Part-time contract alongside Fevlake and AIDU roles</li>
+        <li class="exp-item__bullet">Built the education platform for Russia&rsquo;s largest startup accelerator. Led a team of 7; 30K+ students completed programs</li>
       </ul>
     </li>
 
@@ -1565,153 +1555,11 @@ button {
         </div>
       </div>
       <ul class="exp-item__bullets">
-        <li class="exp-item__bullet">Built Kubernetes-based infrastructure from scratch for a DevOps consulting firm. Designed and executed monolith-to-microservices migration</li>
+        <li class="exp-item__bullet">Built Kubernetes infrastructure from scratch for a DevOps consulting firm and ran a monolith-to-microservices migration</li>
       </ul>
     </li>
 
   </ol>
-</section>
-
-<!-- ======== SELECTED PROJECTS ======== -->
-<section class="projects" id="projects">
-  <div class="projects__header">
-    <p class="projects__heading">Selected Projects</p>
-    <p class="projects__count">6 projects &middot; Finery Tech Holding (FinchTrade &amp; Finery Markets)</p>
-  </div>
-
-  <ul class="project-list">
-
-    <li class="project-card" data-delay="0">
-      <div class="project-card__top">
-        <span class="project-card__num">01</span>
-        <span class="project-card__tag">Platform Architecture</span>
-      </div>
-      <h3 class="project-card__name">Multi-Region Fintech Platform</h3>
-      <p class="project-card__desc">Domain-isolated EKS clusters (trading core, OTC, market guard) instead of namespaces &mdash; hard blast-radius boundaries for crypto trading. Infrastructure as Software approach: Pulumi (Python) enabling unit-tested, type-safe infrastructure. Karpenter with Graviton/ARM and spot instances for sub-60s node provisioning during market volatility spikes. Authentication gateway (Cognito + Lambda + KMS authorizers) as the perimeter for institutional API traffic.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">800+ Pods &middot; 100+ Microservices</span>
-        <span class="project-card__metric">5 AWS Regions</span>
-        <span class="project-card__metric">Active-Active</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Pulumi</span>
-        <span class="project-card__tech-tag">CDK</span>
-        <span class="project-card__tech-tag">EKS</span>
-        <span class="project-card__tech-tag">Karpenter</span>
-        <span class="project-card__tech-tag">Graviton</span>
-        <span class="project-card__tech-tag">Aurora</span>
-        <span class="project-card__tech-tag">CloudNativePG</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="1">
-      <div class="project-card__top">
-        <span class="project-card__num">02</span>
-        <span class="project-card__tag">Platform Engineering</span>
-      </div>
-      <h3 class="project-card__name">Internal Developer Platform</h3>
-      <p class="project-card__desc">Platform-as-a-Product approach: evaluated Backstage and Port, built in-house due to crypto regulatory constraints. A single per-service manifest generates CI pipelines, pushes Helm values to GitOps, and rolls out via ArgoCD ApplicationSets, with ephemeral preview environments per branch. Internal operations monolith (FastAPI + React + Slack bot) covers 11 production feature scopes including two production Claude integrations &mdash; Jira daily digest and Confluence-grounded knowledge-base assistant. Sustains DORA Elite delivery for 30 engineers.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">DORA Elite Delivery</span>
-        <span class="project-card__metric">11 Production Feature Scopes</span>
-        <span class="project-card__metric">Two Claude Integrations</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Python</span>
-        <span class="project-card__tech-tag">FastAPI</span>
-        <span class="project-card__tech-tag">React</span>
-        <span class="project-card__tech-tag">Claude API</span>
-        <span class="project-card__tech-tag">ArgoCD</span>
-        <span class="project-card__tech-tag">Slack Bolt</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="3">
-      <div class="project-card__top">
-        <span class="project-card__num">03</span>
-        <span class="project-card__tag">FinOps</span>
-      </div>
-      <h3 class="project-card__name">FinOps &amp; Cost Engineering</h3>
-      <p class="project-card__desc">Achieved 50% cloud cost reduction across 5 AWS regions. Karpenter consolidation, spot in non-prod, Kubecost (FOCUS-aligned) for per-team attribution, an Aurora-backed cost data warehouse continuously analyzed by AI, and a custom Slack anomaly-alert bot that surfaces forgotten resources and noisy regressions with LLM-generated explanations and remediation suggestions delivered straight to the responsible team.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">50% Cost Reduction</span>
-        <span class="project-card__metric">Per-Team Attribution</span>
-        <span class="project-card__metric">Real-Time Alerts</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Kubecost</span>
-        <span class="project-card__tech-tag">Karpenter</span>
-        <span class="project-card__tech-tag">Graviton</span>
-        <span class="project-card__tech-tag">Slack Bolt</span>
-        <span class="project-card__tech-tag">Python</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="4">
-      <div class="project-card__top">
-        <span class="project-card__num">04</span>
-        <span class="project-card__tag">Observability</span>
-      </div>
-      <h3 class="project-card__name">Observability &amp; Incident Intelligence</h3>
-      <p class="project-card__desc">VictoriaMetrics over Thanos &mdash; simpler ops, better compression for long-term retention. OTEL dual pipeline: metrics via Prometheus Remote Write, traces via Tempo. Robusta AI for alert enrichment and auto-remediation playbooks; incident.io AI Agent in triage pilot. Codified incident response with 15-min SEV1 SLA and per-component RTO/RPO &mdash; on-call paging provisioned as code through a custom Pulumi provider. Sustains DORA Elite delivery (lead time under 6 min, MTTR under 4 min).</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">0 Major Outages in 2+ Years</span>
-        <span class="project-card__metric">DORA Elite Delivery</span>
-        <span class="project-card__metric">AI-Augmented Ops</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">VictoriaMetrics</span>
-        <span class="project-card__tech-tag">OpenTelemetry</span>
-        <span class="project-card__tech-tag">Tempo</span>
-        <span class="project-card__tech-tag">Loki</span>
-        <span class="project-card__tech-tag">Robusta</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="5">
-      <div class="project-card__top">
-        <span class="project-card__num">05</span>
-        <span class="project-card__tag">Service Mesh</span>
-      </div>
-      <h3 class="project-card__name">Istio Service Mesh Implementation</h3>
-      <p class="project-card__desc">Istio over Linkerd &mdash; more expressive AuthorizationPolicy for crypto compliance rules like &ldquo;only compliance service calls KYT endpoint.&rdquo; Validated with 17-service staging environment replicating production topology. Now rolling out to production: PERMISSIVE &rarr; STRICT mTLS per namespace.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">17-Service Demo</span>
-        <span class="project-card__metric">PERMISSIVE &rarr; STRICT</span>
-        <span class="project-card__metric">Crypto Compliance Policies</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Istio</span>
-        <span class="project-card__tech-tag">OPA</span>
-        <span class="project-card__tech-tag">Envoy</span>
-        <span class="project-card__tech-tag">JWT Auth</span>
-        <span class="project-card__tech-tag">FastAPI</span>
-      </div>
-    </li>
-
-    <li class="project-card" data-delay="6">
-      <div class="project-card__top">
-        <span class="project-card__num">06</span>
-        <span class="project-card__tag">Security &amp; Compliance</span>
-      </div>
-      <h3 class="project-card__name">Security &amp; Compliance Engineering</h3>
-      <p class="project-card__desc">Drove the org through SOC 2 Type II and ISO 27001/27701 audits as technical owner. Built MiCA-ready (July 2026 enforcement), DORA-aligned controls: signing isolation via AWS Nitro Enclaves, MPC custody integrations (Fireblocks, Inabit), AML/KYC pipeline integration (Sumsub) with FATF Travel Rule support, and an IAM access-governance system with periodic review campaigns, immutable audit log, and PDF evidence export for auditors. GDPR and FINMA SRO (VQF) coverage.</p>
-      <div class="project-card__metrics">
-        <span class="project-card__metric">SOC 2 Type II &middot; ISO 27001/27701</span>
-        <span class="project-card__metric">MiCA-Ready &middot; DORA-Aligned</span>
-        <span class="project-card__metric">GDPR &middot; FINMA SRO (VQF)</span>
-      </div>
-      <div class="project-card__tech">
-        <span class="project-card__tech-tag">Nitro Enclaves</span>
-        <span class="project-card__tech-tag">Fireblocks</span>
-        <span class="project-card__tech-tag">Inabit</span>
-        <span class="project-card__tech-tag">Sumsub</span>
-        <span class="project-card__tech-tag">Kyverno</span>
-        <span class="project-card__tech-tag">Trivy</span>
-      </div>
-    </li>
-
-  </ul>
 </section>
 
 <!-- ======== SKILLS ======== -->
@@ -1723,189 +1571,112 @@ button {
   <div class="skills__grid">
 
     <div class="skill-group" data-delay="0">
-      <h3 class="skill-group__title">Leadership &amp; Practice</h3>
+      <h3 class="skill-group__title">Crypto &amp; fintech domain</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">Platform-as-a-Product</span>
-        <span class="skill-tag">Engineering Leadership</span>
-        <span class="skill-tag">Hiring &amp; Team Building</span>
-        <span class="skill-tag">Vendor Management</span>
-        <span class="skill-tag">SRE</span>
-        <span class="skill-tag">FinOps</span>
-        <span class="skill-tag">DevSecOps</span>
-        <span class="skill-tag">Compliance Engineering</span>
-        <span class="skill-tag">Internal Developer Platforms</span>
-        <span class="skill-tag">GitOps</span>
-        <span class="skill-tag">Incident Command</span>
+        <span class="skill-tag">OTC desks</span>
+        <span class="skill-tag">Non-custodial ECN</span>
+        <span class="skill-tag">MPC custody (Fireblocks, Inabit)</span>
+        <span class="skill-tag">AML/KYC (Sumsub)</span>
       </div>
     </div>
 
     <div class="skill-group" data-delay="1">
-      <h3 class="skill-group__title">Crypto &amp; Fintech Domain</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">OTC Desks</span>
-        <span class="skill-tag">Non-Custodial ECN</span>
-        <span class="skill-tag">Market-Making &amp; Arbitrage Support</span>
-        <span class="skill-tag">MPC Custody (Fireblocks)</span>
-        <span class="skill-tag">Inabit</span>
-        <span class="skill-tag">AWS Nitro Enclaves (Signing Isolation)</span>
-        <span class="skill-tag">AML/KYC (Sumsub)</span>
-        <span class="skill-tag">FATF Travel Rule</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="2">
-      <h3 class="skill-group__title">AI-Augmented Ops</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Production MCP Servers</span>
-        <span class="skill-tag">Claude API (Jira Digest)</span>
-        <span class="skill-tag">Claude API (Confluence KB Assistant)</span>
-        <span class="skill-tag">Robusta AI Alert Routing</span>
-        <span class="skill-tag">incident.io AI Agent</span>
-        <span class="skill-tag">AI-Driven FinOps Anomaly Explanations</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="3">
       <h3 class="skill-group__title">Compliance &amp; GRC</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">SOC 2 Type II</span>
         <span class="skill-tag">ISO 27001/27701</span>
-        <span class="skill-tag">MiCA-Ready (July 2026)</span>
+        <span class="skill-tag">MiCA-ready</span>
         <span class="skill-tag">DORA</span>
         <span class="skill-tag">GDPR</span>
         <span class="skill-tag">FINMA SRO (VQF)</span>
-        <span class="skill-tag">IAM Access Governance</span>
-        <span class="skill-tag">PDF Evidence Export</span>
+        <span class="skill-tag">IAM access governance</span>
       </div>
     </div>
 
-    <div class="skill-group" data-delay="4">
-      <h3 class="skill-group__title">Banking &amp; Settlement Rails</h3>
+    <div class="skill-group" data-delay="2">
+      <h3 class="skill-group__title">Cloud &amp; Kubernetes platform</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">ClearJunction (EUR)</span>
-        <span class="skill-tag">BCB Group (GBP)</span>
-        <span class="skill-tag">FVBank (USD)</span>
-        <span class="skill-tag">FiatRepublic</span>
-        <span class="skill-tag">Nexpay</span>
-        <span class="skill-tag">Kraken</span>
-        <span class="skill-tag">Binance</span>
-        <span class="skill-tag">Deribit</span>
-        <span class="skill-tag">FalconX</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="5">
-      <h3 class="skill-group__title">Cloud &amp; Kubernetes Platform</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">EKS Multi-Region/Multi-Account</span>
-        <span class="skill-tag">Karpenter</span>
+        <span class="skill-tag">EKS multi-region</span>
+        <span class="skill-tag">Karpenter (spot, sub-60s provisioning)</span>
         <span class="skill-tag">ArgoCD ApplicationSets</span>
-        <span class="skill-tag">Istio Ambient</span>
+        <span class="skill-tag">Istio</span>
         <span class="skill-tag">Kyverno</span>
         <span class="skill-tag">Velero</span>
-        <span class="skill-tag">External Secrets Operator</span>
-        <span class="skill-tag">CloudNativePG</span>
-        <span class="skill-tag">Aurora</span>
         <span class="skill-tag">Transit Gateway</span>
-        <span class="skill-tag">Pod Identity</span>
         <span class="skill-tag">Shield/WAF</span>
         <span class="skill-tag">CloudFront</span>
       </div>
     </div>
 
-    <div class="skill-group" data-delay="6">
-      <h3 class="skill-group__title">Infrastructure as Code</h3>
+    <div class="skill-group" data-delay="3">
+      <h3 class="skill-group__title">Infrastructure as code</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">Pulumi (Python)</span>
-        <span class="skill-tag">Custom Pulumi Providers (gen-sdk)</span>
-        <span class="skill-tag">Unit-Tested with Mocks</span>
-        <span class="skill-tag">Drift Detection &amp; Slack Alerts</span>
-        <span class="skill-tag">Terraform (Legacy)</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">AWS CDK</span>
+        <span class="skill-tag">Helm</span>
+        <span class="skill-tag">Kustomize</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="4">
+      <h3 class="skill-group__title">Data &amp; messaging</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">CloudNativePG</span>
+        <span class="skill-tag">Aurora</span>
+        <span class="skill-tag">PgBouncer</span>
+        <span class="skill-tag">PITR backups</span>
+        <span class="skill-tag">NATS</span>
+        <span class="skill-tag">Redis</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="5">
+      <h3 class="skill-group__title">Observability &amp; reliability</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">VictoriaMetrics</span>
+        <span class="skill-tag">OpenTelemetry</span>
+        <span class="skill-tag">Loki</span>
+        <span class="skill-tag">Tempo</span>
+        <span class="skill-tag">Grafana</span>
+        <span class="skill-tag">Fluent Bit</span>
+        <span class="skill-tag">Robusta</span>
+        <span class="skill-tag">incident.io</span>
+        <span class="skill-tag">SLO/SLI &amp; error budgets</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="6">
+      <h3 class="skill-group__title">Secrets &amp; identity</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">External Secrets Operator</span>
+        <span class="skill-tag">AWS Secrets Manager</span>
+        <span class="skill-tag">SOPS</span>
+        <span class="skill-tag">Dex/OIDC federation</span>
+        <span class="skill-tag">IRSA / Pod Identity</span>
       </div>
     </div>
 
     <div class="skill-group" data-delay="7">
-      <h3 class="skill-group__title">Observability &amp; Reliability</h3>
+      <h3 class="skill-group__title">Security &amp; CI/CD</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">OpenTelemetry</span>
-        <span class="skill-tag">VictoriaMetrics</span>
-        <span class="skill-tag">Loki</span>
-        <span class="skill-tag">Tempo</span>
-        <span class="skill-tag">Grafana</span>
-        <span class="skill-tag">Robusta</span>
-        <span class="skill-tag">Fluent Bit</span>
-        <span class="skill-tag">SLO/SLI &amp; Error Budgets</span>
-        <span class="skill-tag">DORA Elite Metrics</span>
-        <span class="skill-tag">SEV1&ndash;SEV4 Taxonomy</span>
-        <span class="skill-tag">RTO/RPO per Component</span>
+        <span class="skill-tag">Semgrep</span>
+        <span class="skill-tag">Gitleaks</span>
+        <span class="skill-tag">Trivy</span>
+        <span class="skill-tag">GitLab CI</span>
+        <span class="skill-tag">Helm + ArgoCD GitOps</span>
       </div>
     </div>
 
     <div class="skill-group" data-delay="8">
-      <h3 class="skill-group__title">Developer Platform &amp; CI/CD</h3>
+      <h3 class="skill-group__title">Programming &amp; AI tooling</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">Self-Service Onboarding Manifests</span>
-        <span class="skill-tag">Custom GitLab CI Pipeline Generator</span>
-        <span class="skill-tag">17K LoC Tests &middot; 85% Coverage Gate</span>
-        <span class="skill-tag">Helm + ArgoCD GitOps</span>
-        <span class="skill-tag">Ephemeral Environments</span>
-        <span class="skill-tag">BuildKit Remote-Build Caching</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="9">
-      <h3 class="skill-group__title">FinOps</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Kubecost (FOCUS-Aligned)</span>
-        <span class="skill-tag">Per-Team Attribution</span>
-        <span class="skill-tag">Slack Anomaly-Alert Bot</span>
-        <span class="skill-tag">AI-Generated Remediation</span>
-        <span class="skill-tag">Aurora Cost Data Warehouse</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="10">
-      <h3 class="skill-group__title">Security &amp; Identity</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Trivy SBOM/CVE</span>
-        <span class="skill-tag">Semgrep</span>
-        <span class="skill-tag">Gitleaks</span>
-        <span class="skill-tag">Kyverno Admission</span>
-        <span class="skill-tag">Dex/OIDC Federation</span>
-        <span class="skill-tag">incident.io Paging-as-Code</span>
-        <span class="skill-tag">AWS Secrets Manager</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="11">
-      <h3 class="skill-group__title">Networking</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Multi-VPC AWS</span>
-        <span class="skill-tag">Transit Gateway Hub-and-Spoke</span>
-        <span class="skill-tag">Dual Traefik (External/Internal NLB)</span>
-        <span class="skill-tag">Self-Hosted Headscale</span>
-        <span class="skill-tag">Embedded DERP Relay</span>
-        <span class="skill-tag">SOC2 Data-Residency</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="12">
-      <h3 class="skill-group__title">Data Platform</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">PostgreSQL (CloudNativePG)</span>
-        <span class="skill-tag">Redis</span>
-        <span class="skill-tag">NATS</span>
-        <span class="skill-tag">RabbitMQ</span>
-        <span class="skill-tag">S3 + CloudFront</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="13">
-      <h3 class="skill-group__title">Programming</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Python (Primary)</span>
+        <span class="skill-tag">Python</span>
         <span class="skill-tag">Go</span>
         <span class="skill-tag">Bash</span>
+        <span class="skill-tag">Claude API</span>
+        <span class="skill-tag">MCP servers</span>
       </div>
     </div>
 
@@ -1923,7 +1694,7 @@ button {
       <div class="cert-item__icon">K</div>
       <div class="cert-item__body">
         <p class="cert-item__name">Certified Kubernetes Administrator (CKA)</p>
-        <p class="cert-item__issuer">CNCF &mdash; Cloud Native Computing Foundation &mdash; 2023</p>
+        <p class="cert-item__issuer">CNCF, 2023</p>
       </div>
     </li>
   </ul>
@@ -2068,7 +1839,7 @@ button {
       { type: 'amber', text: 'cert-manager: wildcard renewal in 12d \u2014 queued' },
       { type: 'green', text: 'robusta: alert enrichment \u2014 0 active incidents' },
       { type: 'green', text: 'victoria-metrics: 99.999% write availability' },
-      { type: 'green', text: 'cosign: all 52 images verified \u2014 signatures valid' }
+      { type: 'green', text: 'semgrep + gitleaks: 0 blocking findings on main' }
     ];
 
     var currentIndex = 0;
