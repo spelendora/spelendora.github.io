@@ -40,7 +40,7 @@ Head of Platform Engineering for a Swiss OTC desk and regulated crypto ECN servi
 
 #resume-item[
   - Report to the CEO; own infrastructure, security, compliance, and the developer platform. The trading platform cleared 5.2M+ institutional trades in Q1 2026 alone, up 160% year over year
-  - Hired the platform engineer, set the on-call rotation and SEV taxonomy, and run a quarterly roadmap with engineering leads, holding DORA Elite delivery with no added headcount
+  - Built the platform team: hired the platform engineer, set the on-call rotation and SEV taxonomy, and run a quarterly roadmap with engineering leads, holding DORA Elite delivery with no added headcount
   - Architected a 5-region active-active AWS/EKS footprint of 800+ pods and 100+ microservices, carrying 24/7 crypto markets with no maintenance windows
   - Placed trading systems close to the venues they trade on, connected by an Istio mesh carrying mTLS, traffic management, and compliance rules like "only the compliance service may call KYT." All of it written in Pulumi (Python)
   - Codified incident response: a 15-min SEV1 SLA, per-component RTO/RPO, a runbook behind every alert. Act as incident commander, correlating telemetry and flow logs to attribute attacks and drive post-mortems
@@ -100,36 +100,32 @@ Head of Platform Engineering for a Swiss OTC desk and regulated crypto ECN servi
 = Skills
 
 #resume-skill-item(
-  "Crypto & fintech domain",
-  (strong("OTC desks"), "Non-custodial ECN", "MPC custody (Fireblocks, Inabit)", "AML/KYC (Sumsub)"),
-)
-#resume-skill-item(
-  "Compliance & GRC",
-  (strong("SOC 2 Type II"), "ISO 27001/27701", "MiCA-ready", "DORA", "GDPR", "FINMA SRO (VQF)", "IAM access governance"),
-)
-#resume-skill-item(
   "Cloud & Kubernetes platform",
-  (strong("EKS multi-region"), "Karpenter (spot, sub-60s provisioning)", "ArgoCD ApplicationSets", "Istio", "Kyverno", "Velero", "Transit Gateway", "Shield/WAF", "CloudFront"),
+  (strong("EKS multi-region"), "Karpenter", "Istio", "Velero", box("Transit Gateway"), box("Headscale VPN"), "Self-managed NAT", "CloudFront"),
 )
 #resume-skill-item(
   "Infrastructure as code",
-  (strong("Pulumi (Python)"), "Terraform", "AWS CDK", "Helm", "Kustomize"),
+  (strong("Pulumi (Python)"), "Terraform", "AWS CDK", "Helm", "Kustomize", "ArgoCD"),
 )
 #resume-skill-item(
-  "Data & messaging",
-  (strong("PostgreSQL"), "CloudNativePG", "Aurora", "PgBouncer", "PITR backups", "NATS", "Redis"),
+  "Security & CI/CD",
+  (strong("OPA zero-trust policy"), "Kyverno admission policies", "Semgrep", "Gitleaks", "Trivy", "GitLab CI pipelines"),
+)
+#resume-skill-item(
+  "Secrets & identity",
+  (strong("IRSA"), "AWS Secrets Manager", "Secrets Store CSI driver", "SOPS", "Dex/OIDC federation"),
 )
 #resume-skill-item(
   "Observability & reliability",
   (strong("VictoriaMetrics"), "OpenTelemetry", "Loki", "Tempo", "Grafana", "Fluent Bit", box("Robusta"), "incident.io", "SLO/SLI & error budgets"),
 )
 #resume-skill-item(
-  "Secrets & identity",
-  (strong("External Secrets Operator"), "AWS Secrets Manager", "SOPS", "Dex/OIDC federation", "IRSA / Pod Identity"),
+  "Data & messaging",
+  (strong("PostgreSQL"), "CloudNativePG", "Aurora", "PgBouncer", "PITR backups", "NATS", "Redis"),
 )
 #resume-skill-item(
-  "Security & CI/CD",
-  (strong("Semgrep"), "Gitleaks", "Trivy", "GitLab CI", "Helm + ArgoCD GitOps"),
+  "Compliance & GRC",
+  (strong("SOC 2 Type II"), "ISO 27001/27701", "MiCA-ready", "DORA", "GDPR", "IAM access governance"),
 )
 #resume-skill-item(
   "Programming & AI tooling",

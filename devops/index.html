@@ -1477,7 +1477,7 @@ button {
       </div>
       <ul class="exp-item__bullets">
         <li class="exp-item__bullet">Report to the CEO; own infrastructure, security, compliance, and the developer platform. The trading platform cleared 5.2M+ institutional trades in Q1 2026 alone, up 160% year over year</li>
-        <li class="exp-item__bullet">Hired the platform engineer, set the on-call rotation and SEV taxonomy, and run a quarterly roadmap with engineering leads, holding DORA Elite delivery with no added headcount</li>
+        <li class="exp-item__bullet">Built the platform team: hired the platform engineer, set the on-call rotation and SEV taxonomy, and run a quarterly roadmap with engineering leads, holding DORA Elite delivery with no added headcount</li>
         <li class="exp-item__bullet">Architected a 5-region active-active AWS/EKS footprint of 800+ pods and 100+ microservices, carrying 24/7 crypto markets with no maintenance windows</li>
         <li class="exp-item__bullet">Placed trading systems close to the venues they trade on, connected by an Istio mesh carrying mTLS, traffic management, and compliance rules like &ldquo;only the compliance service may call KYT.&rdquo; All of it written in Pulumi (Python)</li>
         <li class="exp-item__bullet">Codified incident response: a 15-min SEV1 SLA, per-component RTO/RPO, a runbook behind every alert. Act as incident commander, correlating telemetry and flow logs to attribute attacks and drive post-mortems</li>
@@ -1571,44 +1571,22 @@ button {
   <div class="skills__grid">
 
     <div class="skill-group" data-delay="0">
-      <h3 class="skill-group__title">Crypto &amp; fintech domain</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">OTC desks</span>
-        <span class="skill-tag">Non-custodial ECN</span>
-        <span class="skill-tag">MPC custody (Fireblocks, Inabit)</span>
-        <span class="skill-tag">AML/KYC (Sumsub)</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="1">
-      <h3 class="skill-group__title">Compliance &amp; GRC</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">SOC 2 Type II</span>
-        <span class="skill-tag">ISO 27001/27701</span>
-        <span class="skill-tag">MiCA-ready</span>
-        <span class="skill-tag">DORA</span>
-        <span class="skill-tag">GDPR</span>
-        <span class="skill-tag">FINMA SRO (VQF)</span>
-        <span class="skill-tag">IAM access governance</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="2">
       <h3 class="skill-group__title">Cloud &amp; Kubernetes platform</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">EKS multi-region</span>
-        <span class="skill-tag">Karpenter (spot, sub-60s provisioning)</span>
-        <span class="skill-tag">ArgoCD ApplicationSets</span>
+        <span class="skill-tag">Karpenter</span>
+        <span class="skill-tag">ArgoCD</span>
         <span class="skill-tag">Istio</span>
-        <span class="skill-tag">Kyverno</span>
         <span class="skill-tag">Velero</span>
         <span class="skill-tag">Transit Gateway</span>
+        <span class="skill-tag">Self-managed NAT</span>
+        <span class="skill-tag">Headscale VPN</span>
         <span class="skill-tag">Shield/WAF</span>
         <span class="skill-tag">CloudFront</span>
       </div>
     </div>
 
-    <div class="skill-group" data-delay="3">
+    <div class="skill-group" data-delay="1">
       <h3 class="skill-group__title">Infrastructure as code</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">Pulumi (Python)</span>
@@ -1616,23 +1594,34 @@ button {
         <span class="skill-tag">AWS CDK</span>
         <span class="skill-tag">Helm</span>
         <span class="skill-tag">Kustomize</span>
+        <span class="skill-tag">GitOps</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="2">
+      <h3 class="skill-group__title">Security &amp; CI/CD</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">OPA zero-trust policy</span>
+        <span class="skill-tag">Kyverno admission policies</span>
+        <span class="skill-tag">Semgrep</span>
+        <span class="skill-tag">Gitleaks</span>
+        <span class="skill-tag">Trivy</span>
+        <span class="skill-tag">GitLab CI pipelines</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="3">
+      <h3 class="skill-group__title">Secrets &amp; identity</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">IRSA</span>
+        <span class="skill-tag">AWS Secrets Manager</span>
+        <span class="skill-tag">Secrets Store CSI driver</span>
+        <span class="skill-tag">SOPS</span>
+        <span class="skill-tag">Dex/OIDC federation</span>
       </div>
     </div>
 
     <div class="skill-group" data-delay="4">
-      <h3 class="skill-group__title">Data &amp; messaging</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">CloudNativePG</span>
-        <span class="skill-tag">Aurora</span>
-        <span class="skill-tag">PgBouncer</span>
-        <span class="skill-tag">PITR backups</span>
-        <span class="skill-tag">NATS</span>
-        <span class="skill-tag">Redis</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="5">
       <h3 class="skill-group__title">Observability &amp; reliability</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">VictoriaMetrics</span>
@@ -1647,29 +1636,32 @@ button {
       </div>
     </div>
 
-    <div class="skill-group" data-delay="6">
-      <h3 class="skill-group__title">Secrets &amp; identity</h3>
+    <div class="skill-group" data-delay="5">
+      <h3 class="skill-group__title">Data &amp; messaging</h3>
       <div class="skill-group__tags">
-        <span class="skill-tag">External Secrets Operator</span>
-        <span class="skill-tag">AWS Secrets Manager</span>
-        <span class="skill-tag">SOPS</span>
-        <span class="skill-tag">Dex/OIDC federation</span>
-        <span class="skill-tag">IRSA / Pod Identity</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">CloudNativePG</span>
+        <span class="skill-tag">Aurora</span>
+        <span class="skill-tag">PgBouncer</span>
+        <span class="skill-tag">PITR backups</span>
+        <span class="skill-tag">NATS</span>
+        <span class="skill-tag">Redis</span>
+      </div>
+    </div>
+
+    <div class="skill-group" data-delay="6">
+      <h3 class="skill-group__title">Compliance &amp; GRC</h3>
+      <div class="skill-group__tags">
+        <span class="skill-tag">SOC 2 Type II</span>
+        <span class="skill-tag">ISO 27001/27701</span>
+        <span class="skill-tag">MiCA-ready</span>
+        <span class="skill-tag">DORA</span>
+        <span class="skill-tag">GDPR</span>
+        <span class="skill-tag">IAM access governance</span>
       </div>
     </div>
 
     <div class="skill-group" data-delay="7">
-      <h3 class="skill-group__title">Security &amp; CI/CD</h3>
-      <div class="skill-group__tags">
-        <span class="skill-tag">Semgrep</span>
-        <span class="skill-tag">Gitleaks</span>
-        <span class="skill-tag">Trivy</span>
-        <span class="skill-tag">GitLab CI</span>
-        <span class="skill-tag">Helm + ArgoCD GitOps</span>
-      </div>
-    </div>
-
-    <div class="skill-group" data-delay="8">
       <h3 class="skill-group__title">Programming &amp; AI tooling</h3>
       <div class="skill-group__tags">
         <span class="skill-tag">Python</span>
